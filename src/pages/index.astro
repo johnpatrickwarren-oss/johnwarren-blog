@@ -1,8 +1,14 @@
 ---
+import { getCollection } from 'astro:content';
 import BaseHead from '../components/BaseHead.astro';
 import Footer from '../components/Footer.astro';
+import FormattedDate from '../components/FormattedDate.astro';
 import Header from '../components/Header.astro';
 import { SITE_DESCRIPTION, SITE_TITLE } from '../consts';
+
+const posts = (await getCollection('blog'))
+	.sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf())
+	.slice(0, 5);
 ---
 
 <!doctype html>
@@ -12,38 +18,165 @@ import { SITE_DESCRIPTION, SITE_TITLE } from '../consts';
 	</head>
 	<body>
 		<Header />
-		<main>
-			<h1>🧑‍🚀 Hello, Astronaut!</h1>
-			<p>
-				Welcome to the official <a href="https://astro.build/">Astro</a> blog starter template. This template
-				serves as a lightweight, minimally-styled starting point for anyone looking to build a personal
-				website, blog, or portfolio with Astro.
-			</p>
-			<p>
-				This template comes with a few integrations already configured in your
-				<code>astro.config.mjs</code> file. You can customize your setup with
-				<a href="https://astro.build/integrations">Astro Integrations</a> to add tools like Tailwind,
-				React, or Vue to your project.
-			</p>
-			<p>Here are a few ideas on how to get started with the template:</p>
-			<ul>
-				<li>Edit this page in <code>src/pages/index.astro</code></li>
-				<li>Edit the site header items in <code>src/components/Header.astro</code></li>
-				<li>Add your name to the footer in <code>src/components/Footer.astro</code></li>
-				<li>Check out the included blog posts in <code>src/content/blog/</code></li>
-				<li>Customize the blog post page layout in <code>src/layouts/BlogPost.astro</code></li>
-			</ul>
-			<p>
-				Have fun! If you get stuck, remember to
-				<a href="https://docs.astro.build/">read the docs</a>
-				or <a href="https://astro.build/chat">join us on Discord</a> to ask questions.
-			</p>
-			<p>
-				Looking for a blog template with a bit more personality? Check out
-				<a href="https://github.com/Charca/astro-blog-template">astro-blog-template</a>
-				by <a href="https://twitter.com/Charca">Maxi Ferreira</a>.
-			</p>
+		<main class="home">
+			<section class="intro">
+				<p class="lede">
+					I'm John. I work on AI systems — the practical engineering
+					underneath model behavior: evaluation, tool use, agent loops, the
+					places where probability meets production code.
+				</p>
+				<p>
+					This is where I write about it. Mostly notes from things that
+					surprised me, occasionally longer pieces when something is worth
+					working out in public.
+				</p>
+			</section>
+
+			<section class="writing">
+				<h2 class="label">Recent writing</h2>
+				<ol class="entries">
+					{
+						posts.map((post, i) => (
+							<li>
+								<a href={`/blog/${post.id}/`}>
+									<span class="num">{String(i + 1).padStart(2, '0')}</span>
+									<span class="title">{post.data.title}</span>
+									<span class="date">
+										<FormattedDate date={post.data.pubDate} />
+									</span>
+								</a>
+							</li>
+						))
+					}
+				</ol>
+				<p class="more"><a href="/blog">All writing &rarr;</a></p>
+			</section>
+
+			<section class="elsewhere">
+				<h2 class="label">Elsewhere</h2>
+				<p><a href="/about">About</a> &middot; <a href="/rss.xml">RSS</a> &middot;
+					<a href="https://github.com/johnpatrickwarren-oss" target="_blank" rel="noopener">GitHub</a>
+				</p>
+			</section>
 		</main>
 		<Footer />
 	</body>
 </html>
+
+<style>
+	.home {
+		width: 640px;
+		max-width: calc(100% - 2em);
+		margin: 0 auto;
+		padding: 5rem 1em 4rem;
+		font-family:
+			'Iowan Old Style', 'Palatino Linotype', Charter, 'Source Serif Pro',
+			Palatino, Georgia, serif;
+		font-size: 1.05rem;
+		line-height: 1.65;
+		color: #1c1a17;
+	}
+
+	.home a {
+		color: inherit;
+		text-decoration: underline;
+		text-decoration-color: #b85a3a;
+		text-decoration-thickness: 1px;
+		text-underline-offset: 3px;
+		transition:
+			text-decoration-color 0.15s ease,
+			color 0.15s ease;
+	}
+	.home a:hover {
+		color: #8a3324;
+		text-decoration-color: #8a3324;
+	}
+
+	.intro .lede {
+		font-size: 1.35rem;
+		line-height: 1.45;
+		margin: 0 0 1.25em;
+		text-wrap: balance;
+	}
+	.intro p {
+		margin: 0 0 1em;
+	}
+
+	section + section {
+		margin-top: 3.5rem;
+		padding-top: 2rem;
+		border-top: 1px solid rgba(28, 26, 23, 0.15);
+	}
+
+	.label {
+		font-family: ui-monospace, 'SF Mono', 'JetBrains Mono', Menlo, monospace;
+		font-size: 0.72rem;
+		font-weight: 500;
+		text-transform: uppercase;
+		letter-spacing: 0.14em;
+		color: rgba(28, 26, 23, 0.55);
+		margin: 0 0 1.5rem;
+	}
+
+	.entries {
+		list-style: none;
+		margin: 0;
+		padding: 0;
+	}
+	.entries a {
+		display: grid;
+		grid-template-columns: 2.25rem 1fr auto;
+		align-items: baseline;
+		gap: 1rem;
+		padding: 0.75rem 0;
+		text-decoration: none;
+		border-bottom: 1px solid rgba(28, 26, 23, 0.08);
+	}
+	.entries li:last-child a {
+		border-bottom: none;
+	}
+	.entries .num,
+	.entries .date {
+		font-family: ui-monospace, 'SF Mono', 'JetBrains Mono', Menlo, monospace;
+		font-size: 0.78rem;
+		font-variant-numeric: tabular-nums;
+	}
+	.entries .num {
+		color: rgba(28, 26, 23, 0.4);
+	}
+	.entries .date {
+		color: rgba(28, 26, 23, 0.45);
+	}
+	.entries .title {
+		font-size: 1.05rem;
+	}
+	.entries a:hover .title {
+		color: #8a3324;
+	}
+
+	.more {
+		margin: 1.5rem 0 0;
+		font-size: 0.95rem;
+	}
+	.elsewhere p {
+		margin: 0;
+	}
+
+	@media (max-width: 640px) {
+		.home {
+			padding: 3rem 1em 3rem;
+			font-size: 1rem;
+		}
+		.intro .lede {
+			font-size: 1.2rem;
+		}
+		.entries a {
+			grid-template-columns: 1.75rem 1fr;
+			grid-template-rows: auto auto;
+			gap: 0.25rem 1rem;
+		}
+		.entries .date {
+			grid-column: 2 / 3;
+		}
+	}
+</style>
