@@ -6,15 +6,16 @@ const blog = defineCollection({
 	// Load Markdown and MDX files in the `src/content/blog/` directory.
 	loader: glob({ base: './src/content/blog', pattern: '**/*.{md,mdx}' }),
 	// Type-check frontmatter using a schema
-	schema: ({ image }) =>
-		z.object({
-			title: z.string(),
-			description: z.string(),
-			// Transform string to Date object
-			pubDate: z.coerce.date(),
-			updatedDate: z.coerce.date().optional(),
-			heroImage: z.optional(image()),
-		}),
+	schema: z.object({
+		title: z.string(),
+		description: z.string(),
+		// Transform string to Date object
+		pubDate: z.coerce.date(),
+		updatedDate: z.coerce.date().optional(),
+		// Absolute path to a public asset (e.g. "/og/og_anchor.png"). Used as
+		// both the in-page hero and the og:image meta value.
+		heroImage: z.string().optional(),
+	}),
 });
 
 export const collections = { blog };

@@ -2,6 +2,7 @@
 title: 'Anchor: three roads to the same harness'
 description: 'Anthropic, Superpowers, and Anchor arrived at the same patterns for multi-agent code generation — and where Anchor goes further.'
 pubDate: 'May 25 2026'
+heroImage: '/og/og_anchor.png'
 ---
 
 Anthropic's [harness-design paper](https://www.anthropic.com/engineering/harness-design-long-running-apps) opens with an empirical finding I keep returning to. On identical prompts, a 20-minute solo agent run cost $9 and produced broken work; a 6-hour harness run cost $200 and produced something that functioned. Same model, same prompt. The thing that changed was the scaffolding around the model.

@@ -2,6 +2,7 @@
 title: 'Runway: capacity planning with calibrated uncertainty'
 description: 'How Runway adapts the Anchor methodology to AI capacity planning, and why calibrated uncertainty matters for finance-facing capacity tools.'
 pubDate: 'May 30 2026'
+heroImage: '/og/og_runway.png'
 ---
 
 The first five posts in this series were about the AI inference reliability stack: [Anchor](/blog/three-roads-to-the-same-harness/) as the methodology, [DeploySignal](/blog/deploysignal/) as the deploy gate, [Tessera](/blog/tessera/) for steady-state cluster observation, [Anvil](/blog/anvil/) for chaos-experiment verdicts, [Cairn](/blog/cairn/) for postmortem attribution. Five projects, one statistical engine, one methodology.

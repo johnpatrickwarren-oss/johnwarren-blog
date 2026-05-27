@@ -2,6 +2,7 @@
 title: 'Tessera: same engine, different scope, and what Anchor-from-round-1 looks like'
 description: 'How Tessera adapts the DeploySignal engine for cluster-scope observation, and what 67 rounds of methodology-from-round-1 produced.'
 pubDate: 'May 27 2026'
+heroImage: '/og/og_tessera.png'
 ---
 
 The [previous post in this series](/blog/deploysignal/) closed on a question: what changes when the operational scope is "100-10,000 GPU shards in a running cluster" rather than "one deploy decision"? This post is the answer.

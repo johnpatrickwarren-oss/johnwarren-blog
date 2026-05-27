@@ -2,6 +2,7 @@
 title: 'Anvil: the deploy gate run backward'
 description: 'How the DeploySignal engine adapts to verdict chaos experiments — same Ville-bounded portfolio, same audit substrate, inverted operational question.'
 pubDate: 'May 28 2026'
+heroImage: '/og/og_anvil.png'
 ---
 
 The [DeploySignal post](/blog/deploysignal/) framed the engine as answering one operational question: should this canary proceed, extend, or rollback? The [Tessera post](/blog/tessera/) showed the same engine running continuously across N shards in a cluster.

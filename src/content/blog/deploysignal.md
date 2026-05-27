@@ -2,6 +2,7 @@
 title: 'DeploySignal: a statistical deploy gate, and the methodology that fell out of building one'
 description: 'What DeploySignal does, how it works, and how building it produced the Anchor methodology and the substrate for Tessera.'
 pubDate: 'May 26 2026'
+heroImage: '/og/og_deploysignal.png'
 ---
 
 The standard deploy-gate question is also the hardest one in production AI inference: given a deploy and live telemetry, should we proceed, extend, or rollback?

@@ -2,6 +2,7 @@
 title: 'Cairn: ranked attribution, not root cause'
 description: 'How Cairn ranks candidate cause-events against incident onset under a Bayesian alignment model — and the disciplines that distinguish attribution from causation.'
 pubDate: 'May 29 2026'
+heroImage: '/og/og_cairn.png'
 ---
 
 The first four posts in this series walked forward through the lifecycle: [DeploySignal](/blog/deploysignal/) at promotion, [Anvil](/blog/anvil/) for chaos experiments, [Tessera](/blog/tessera/) for steady-state observation. Each runs the engine in a different operational direction.
