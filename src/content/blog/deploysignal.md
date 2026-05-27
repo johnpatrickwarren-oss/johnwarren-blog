@@ -92,55 +92,55 @@ The portfolio is five families running in parallel every tick. Each family contr
 <!-- p99_latency: drifting up (matches rule) -->
 <line x1="0" y1="10" x2="340" y2="10" stroke="#1c1a17" opacity="0.18"/>
 <text x="-5" y="14" font-size="9" fill="#1c1a17" opacity="0.7" text-anchor="end">p99_latency</text>
-<rect x="200" y="4" width="35" height="12" fill="#0f9b8e" opacity="0.8"/>
-<text x="237" y="14" font-size="9" fill="#0f9b8e" font-weight="600">↑</text>
+<rect x="200" y="4" width="35" height="12" fill="#3d5b3f" opacity="0.8"/>
+<text x="237" y="14" font-size="9" fill="#3d5b3f" font-weight="600">↑</text>
 <!-- ttft: drifting up -->
 <line x1="0" y1="35" x2="340" y2="35" stroke="#1c1a17" opacity="0.18"/>
 <text x="-5" y="39" font-size="9" fill="#1c1a17" opacity="0.7" text-anchor="end">ttft</text>
-<rect x="200" y="29" width="30" height="12" fill="#0f9b8e" opacity="0.8"/>
-<text x="232" y="39" font-size="9" fill="#0f9b8e" font-weight="600">↑</text>
+<rect x="200" y="29" width="30" height="12" fill="#3d5b3f" opacity="0.8"/>
+<text x="232" y="39" font-size="9" fill="#3d5b3f" font-weight="600">↑</text>
 <!-- tokens_turn: drifting up -->
 <line x1="0" y1="60" x2="340" y2="60" stroke="#1c1a17" opacity="0.18"/>
 <text x="-5" y="64" font-size="9" fill="#1c1a17" opacity="0.7" text-anchor="end">tokens_turn</text>
-<rect x="200" y="54" width="32" height="12" fill="#0f9b8e" opacity="0.8"/>
-<text x="234" y="64" font-size="9" fill="#0f9b8e" font-weight="600">↑</text>
+<rect x="200" y="54" width="32" height="12" fill="#3d5b3f" opacity="0.8"/>
+<text x="234" y="64" font-size="9" fill="#3d5b3f" font-weight="600">↑</text>
 <!-- cost_req: drifting up -->
 <line x1="0" y1="85" x2="340" y2="85" stroke="#1c1a17" opacity="0.18"/>
 <text x="-5" y="89" font-size="9" fill="#1c1a17" opacity="0.7" text-anchor="end">cost_req</text>
-<rect x="200" y="79" width="28" height="12" fill="#0f9b8e" opacity="0.8"/>
-<text x="230" y="89" font-size="9" fill="#0f9b8e" font-weight="600">↑</text>
+<rect x="200" y="79" width="28" height="12" fill="#3d5b3f" opacity="0.8"/>
+<text x="230" y="89" font-size="9" fill="#3d5b3f" font-weight="600">↑</text>
 <!-- kv_cache: flat -->
 <line x1="0" y1="110" x2="340" y2="110" stroke="#1c1a17" opacity="0.18"/>
 <text x="-5" y="114" font-size="9" fill="#1c1a17" opacity="0.7" text-anchor="end">kv_cache</text>
-<rect x="198" y="104" width="4" height="12" fill="#aaa" opacity="0.6"/>
-<text x="210" y="114" font-size="9" fill="#aaa">—</text>
+<rect x="198" y="104" width="4" height="12" fill="#1c1a17" opacity="0.35" opacity="0.6"/>
+<text x="210" y="114" font-size="9" fill="#1c1a17" opacity="0.35">—</text>
 <!-- downstream_err: flat -->
 <line x1="0" y1="135" x2="340" y2="135" stroke="#1c1a17" opacity="0.18"/>
 <text x="-5" y="139" font-size="9" fill="#1c1a17" opacity="0.7" text-anchor="end">downstream_err</text>
-<rect x="198" y="129" width="4" height="12" fill="#aaa" opacity="0.6"/>
-<text x="210" y="139" font-size="9" fill="#aaa">—</text>
+<rect x="198" y="129" width="4" height="12" fill="#1c1a17" opacity="0.35" opacity="0.6"/>
+<text x="210" y="139" font-size="9" fill="#1c1a17" opacity="0.35">—</text>
 <!-- mfu: flat -->
 <line x1="0" y1="160" x2="340" y2="160" stroke="#1c1a17" opacity="0.18"/>
 <text x="-5" y="164" font-size="9" fill="#1c1a17" opacity="0.7" text-anchor="end">mfu</text>
-<rect x="196" y="154" width="6" height="12" fill="#aaa" opacity="0.6"/>
-<text x="210" y="164" font-size="9" fill="#aaa">—</text>
+<rect x="196" y="154" width="6" height="12" fill="#1c1a17" opacity="0.35" opacity="0.6"/>
+<text x="210" y="164" font-size="9" fill="#1c1a17" opacity="0.35">—</text>
 <!-- hbm_spill: flat -->
 <line x1="0" y1="185" x2="340" y2="185" stroke="#1c1a17" opacity="0.18"/>
 <text x="-5" y="189" font-size="9" fill="#1c1a17" opacity="0.7" text-anchor="end">hbm_spill</text>
-<rect x="198" y="179" width="4" height="12" fill="#aaa" opacity="0.6"/>
-<text x="210" y="189" font-size="9" fill="#aaa">—</text>
+<rect x="198" y="179" width="4" height="12" fill="#1c1a17" opacity="0.35" opacity="0.6"/>
+<text x="210" y="189" font-size="9" fill="#1c1a17" opacity="0.35">—</text>
 <!-- collective_ops: flat -->
 <line x1="0" y1="210" x2="340" y2="210" stroke="#1c1a17" opacity="0.18"/>
 <text x="-5" y="214" font-size="9" fill="#1c1a17" opacity="0.7" text-anchor="end">collective_ops</text>
-<rect x="196" y="204" width="6" height="12" fill="#aaa" opacity="0.6"/>
-<text x="210" y="214" font-size="9" fill="#aaa">—</text>
+<rect x="196" y="204" width="6" height="12" fill="#1c1a17" opacity="0.35" opacity="0.6"/>
+<text x="210" y="214" font-size="9" fill="#1c1a17" opacity="0.35">—</text>
 <!-- Vertical baseline reference line -->
-<line x1="200" y1="0" x2="200" y2="220" stroke="#555" stroke-width="0.5"/>
-<text x="200" y="236" font-size="9" fill="#555" text-anchor="middle">baseline</text>
+<line x1="200" y1="0" x2="200" y2="220" stroke="#1c1a17" opacity="0.6" stroke-width="0.5"/>
+<text x="200" y="236" font-size="9" fill="#1c1a17" opacity="0.6" text-anchor="middle">baseline</text>
 <!-- Rule annotation -->
 <g transform="translate(-10, 255)">
-<rect x="0" y="0" width="350" height="20" fill="#e3f4f2" rx="3"/>
-<text x="175" y="14" font-size="11" fill="#0f9b8e" text-anchor="middle" font-weight="600">4 of 9 drifting in same direction → slowbleed FIRES</text>
+<rect x="0" y="0" width="350" height="20" fill="#1c1a17" opacity="0.06" rx="3"/>
+<text x="175" y="14" font-size="11" fill="#3d5b3f" text-anchor="middle" font-weight="600">4 of 9 drifting in same direction → slowbleed FIRES</text>
 </g>
 </g>
 </svg>
@@ -156,8 +156,8 @@ The portfolio is five families running in parallel every tick. Each family contr
 <!-- Plot area -->
 <g transform="translate(60, 40)">
 <!-- Axes -->
-<line x1="0" y1="0" x2="0" y2="220" stroke="#333" stroke-width="1"/>
-<line x1="0" y1="220" x2="320" y2="220" stroke="#333" stroke-width="1"/>
+<line x1="0" y1="0" x2="0" y2="220" stroke="#1c1a17" opacity="0.8" stroke-width="1"/>
+<line x1="0" y1="220" x2="320" y2="220" stroke="#1c1a17" opacity="0.8" stroke-width="1"/>
 <!-- Axis labels -->
 <text x="-15" y="115" font-size="10" fill="#1c1a17" opacity="0.7" transform="rotate(-90, -15, 115)">signal 2</text>
 <text x="160" y="245" font-size="10" fill="#1c1a17" opacity="0.7" text-anchor="middle">signal 1</text>
@@ -167,34 +167,34 @@ The portfolio is five families running in parallel every tick. Each family contr
 <text x="256" y="14" font-size="9" fill="#8a3324" opacity="0.8">thr 1</text>
 <text x="260" y="28" font-size="9" fill="#8a3324" opacity="0.8">thr 2 ↓</text>
 <!-- Mahalanobis ellipse (tilted correlation) -->
-<ellipse cx="130" cy="130" rx="90" ry="35" transform="rotate(-30 130 130)" fill="none" stroke="#8b3fc7" stroke-width="1.5" stroke-dasharray="4,2"/>
-<text x="15" y="198" font-size="10" fill="#8b3fc7" font-weight="600">Mahalanobis</text>
-<text x="15" y="210" font-size="10" fill="#8b3fc7" font-weight="600">ellipse (T²)</text>
+<ellipse cx="130" cy="130" rx="90" ry="35" transform="rotate(-30 130 130)" fill="none" stroke="#3d5b3f" stroke-width="1.5" stroke-dasharray="4,2"/>
+<text x="15" y="198" font-size="10" fill="#3d5b3f" font-weight="600">Mahalanobis</text>
+<text x="15" y="210" font-size="10" fill="#3d5b3f" font-weight="600">ellipse (T²)</text>
 <!-- Baseline healthy points (inside ellipse) -->
-<circle cx="100" cy="145" r="2.5" fill="#8b3fc7" opacity="0.6"/>
-<circle cx="115" cy="140" r="2.5" fill="#8b3fc7" opacity="0.6"/>
-<circle cx="130" cy="135" r="2.5" fill="#8b3fc7" opacity="0.6"/>
-<circle cx="145" cy="125" r="2.5" fill="#8b3fc7" opacity="0.6"/>
-<circle cx="160" cy="120" r="2.5" fill="#8b3fc7" opacity="0.6"/>
-<circle cx="95" cy="152" r="2.5" fill="#8b3fc7" opacity="0.6"/>
-<circle cx="120" cy="130" r="2.5" fill="#8b3fc7" opacity="0.6"/>
-<circle cx="135" cy="145" r="2.5" fill="#8b3fc7" opacity="0.6"/>
-<circle cx="108" cy="135" r="2.5" fill="#8b3fc7" opacity="0.6"/>
-<circle cx="150" cy="135" r="2.5" fill="#8b3fc7" opacity="0.6"/>
-<circle cx="125" cy="150" r="2.5" fill="#8b3fc7" opacity="0.6"/>
+<circle cx="100" cy="145" r="2.5" fill="#3d5b3f" opacity="0.6"/>
+<circle cx="115" cy="140" r="2.5" fill="#3d5b3f" opacity="0.6"/>
+<circle cx="130" cy="135" r="2.5" fill="#3d5b3f" opacity="0.6"/>
+<circle cx="145" cy="125" r="2.5" fill="#3d5b3f" opacity="0.6"/>
+<circle cx="160" cy="120" r="2.5" fill="#3d5b3f" opacity="0.6"/>
+<circle cx="95" cy="152" r="2.5" fill="#3d5b3f" opacity="0.6"/>
+<circle cx="120" cy="130" r="2.5" fill="#3d5b3f" opacity="0.6"/>
+<circle cx="135" cy="145" r="2.5" fill="#3d5b3f" opacity="0.6"/>
+<circle cx="108" cy="135" r="2.5" fill="#3d5b3f" opacity="0.6"/>
+<circle cx="150" cy="135" r="2.5" fill="#3d5b3f" opacity="0.6"/>
+<circle cx="125" cy="150" r="2.5" fill="#3d5b3f" opacity="0.6"/>
 <!-- Drift point: inside both univariate thresholds but OUTSIDE ellipse -->
 <circle cx="180" cy="80" r="5" fill="#8a3324" stroke="#f3efe6" stroke-width="1.5"/>
 <text x="190" y="77" font-size="11" fill="#8a3324" font-weight="600">drifted</text>
 <text x="190" y="89" font-size="11" fill="#8a3324" font-weight="600">point</text>
 <!-- Annotations -->
 <g transform="translate(0, 260)">
-<text x="0" y="0" font-size="10" fill="#333">
+<text x="0" y="0" font-size="10" fill="#1c1a17" opacity="0.8">
 <tspan fill="#1c1a17" opacity="0.7">• signal 1 alone:</tspan>
-<tspan fill="#1e9e4f" font-weight="600"> within threshold</tspan>
+<tspan fill="#3d5b3f" font-weight="600"> within threshold</tspan>
 <tspan fill="#1c1a17" opacity="0.7">  • signal 2 alone:</tspan>
-<tspan fill="#1e9e4f" font-weight="600"> within threshold</tspan>
+<tspan fill="#3d5b3f" font-weight="600"> within threshold</tspan>
 </text>
-<text x="0" y="14" font-size="10" fill="#8b3fc7" font-weight="600">• joint position outside Mahalanobis ellipse → T² FIRES</text>
+<text x="0" y="14" font-size="10" fill="#3d5b3f" font-weight="600">• joint position outside Mahalanobis ellipse → T² FIRES</text>
 </g>
 </g>
 </svg>
@@ -212,30 +212,30 @@ The portfolio is five families running in parallel every tick. Each family contr
 <line x1="30" y1="70" x2="390" y2="70" stroke="#1c1a17" opacity="0.35" stroke-width="0.5"/>
 <text x="32" y="66" font-size="9" fill="#1c1a17" opacity="0.55">baseline</text>
 <polyline points="30,70 45,45 60,95 75,50 90,90 105,45 120,95 135,45 150,90 165,50 180,95 195,45 210,90 225,50 240,95 255,45 270,90 285,50 300,95 315,45 330,90 345,50 360,95 375,45 390,90"
-fill="none" stroke="#d18d2d" stroke-width="1.5"/>
+fill="none" stroke="#3d5b3f" stroke-width="1.5"/>
 <text x="200" y="115" font-size="9" fill="#1c1a17" opacity="0.55" text-anchor="middle">time (periodic oscillation at period ≈ 3)</text>
 <!-- Bottom panel: ACF -->
 <text x="10" y="145" font-size="11" fill="#1c1a17" opacity="0.7" font-weight="600">autocorrelation (ACF)</text>
 <line x1="10" y1="149" x2="390" y2="149" stroke="#1c1a17" opacity="0.18"/>
 <!-- ACF axis -->
-<line x1="30" y1="160" x2="30" y2="260" stroke="#333"/>
-<line x1="30" y1="240" x2="390" y2="240" stroke="#333"/>
+<line x1="30" y1="160" x2="30" y2="260" stroke="#1c1a17" opacity="0.8"/>
+<line x1="30" y1="240" x2="390" y2="240" stroke="#1c1a17" opacity="0.8"/>
 <text x="20" y="165" font-size="9" fill="#1c1a17" opacity="0.7" text-anchor="end">+1</text>
 <text x="20" y="245" font-size="9" fill="#1c1a17" opacity="0.7" text-anchor="end">0</text>
 <!-- Significance bound (dashed red) -->
 <line x1="30" y1="195" x2="390" y2="195" stroke="#8a3324" stroke-dasharray="3,3" stroke-width="0.6"/>
 <text x="34" y="192" font-size="9" fill="#8a3324">significance bound</text>
 <!-- ACF bars - peak at lag 3 -->
-<rect x="40" y="160" width="20" height="80" fill="#d18d2d"/>
-<rect x="70" y="220" width="20" height="20" fill="#d18d2d" opacity="0.5"/>
-<rect x="100" y="215" width="20" height="25" fill="#d18d2d" opacity="0.5"/>
-<rect x="130" y="175" width="20" height="65" fill="#d18d2d" stroke="#8a3324" stroke-width="1.5"/>
-<rect x="160" y="222" width="20" height="18" fill="#d18d2d" opacity="0.5"/>
-<rect x="190" y="218" width="20" height="22" fill="#d18d2d" opacity="0.5"/>
-<rect x="220" y="183" width="20" height="57" fill="#d18d2d" stroke="#8a3324" stroke-width="1.5"/>
-<rect x="250" y="224" width="20" height="16" fill="#d18d2d" opacity="0.5"/>
-<rect x="280" y="220" width="20" height="20" fill="#d18d2d" opacity="0.5"/>
-<rect x="310" y="190" width="20" height="50" fill="#d18d2d" stroke="#8a3324" stroke-width="1.5"/>
+<rect x="40" y="160" width="20" height="80" fill="#3d5b3f"/>
+<rect x="70" y="220" width="20" height="20" fill="#3d5b3f" opacity="0.5"/>
+<rect x="100" y="215" width="20" height="25" fill="#3d5b3f" opacity="0.5"/>
+<rect x="130" y="175" width="20" height="65" fill="#3d5b3f" stroke="#8a3324" stroke-width="1.5"/>
+<rect x="160" y="222" width="20" height="18" fill="#3d5b3f" opacity="0.5"/>
+<rect x="190" y="218" width="20" height="22" fill="#3d5b3f" opacity="0.5"/>
+<rect x="220" y="183" width="20" height="57" fill="#3d5b3f" stroke="#8a3324" stroke-width="1.5"/>
+<rect x="250" y="224" width="20" height="16" fill="#3d5b3f" opacity="0.5"/>
+<rect x="280" y="220" width="20" height="20" fill="#3d5b3f" opacity="0.5"/>
+<rect x="310" y="190" width="20" height="50" fill="#3d5b3f" stroke="#8a3324" stroke-width="1.5"/>
 <!-- Lag labels -->
 <text x="50" y="254" font-size="9" fill="#1c1a17" opacity="0.7" text-anchor="middle">0</text>
 <text x="80" y="254" font-size="9" fill="#1c1a17" opacity="0.7" text-anchor="middle">1</text>
@@ -264,36 +264,36 @@ fill="none" stroke="#d18d2d" stroke-width="1.5"/>
 <!-- Plot area -->
 <g transform="translate(60, 40)">
 <!-- Axes -->
-<line x1="0" y1="0" x2="0" y2="200" stroke="#333"/>
-<line x1="0" y1="200" x2="320" y2="200" stroke="#333"/>
+<line x1="0" y1="0" x2="0" y2="200" stroke="#1c1a17" opacity="0.8"/>
+<line x1="0" y1="200" x2="320" y2="200" stroke="#1c1a17" opacity="0.8"/>
 <text x="-15" y="100" font-size="10" fill="#1c1a17" opacity="0.7" transform="rotate(-90, -15, 100)">signal 2</text>
 <text x="160" y="225" font-size="10" fill="#1c1a17" opacity="0.7" text-anchor="middle">signal 1</text>
 <!-- Healthy baseline cluster (N points) -->
 <!-- Scatter of healthy samples -->
-<circle cx="110" cy="120" r="2.5" fill="#c7286b" opacity="0.5"/>
-<circle cx="125" cy="115" r="2.5" fill="#c7286b" opacity="0.5"/>
-<circle cx="140" cy="110" r="2.5" fill="#c7286b" opacity="0.5"/>
-<circle cx="100" cy="135" r="2.5" fill="#c7286b" opacity="0.5"/>
-<circle cx="130" cy="120" r="2.5" fill="#c7286b" opacity="0.5"/>
-<circle cx="115" cy="125" r="2.5" fill="#c7286b" opacity="0.5"/>
-<circle cx="145" cy="115" r="2.5" fill="#c7286b" opacity="0.5"/>
-<circle cx="120" cy="105" r="2.5" fill="#c7286b" opacity="0.5"/>
-<circle cx="135" cy="125" r="2.5" fill="#c7286b" opacity="0.5"/>
-<circle cx="105" cy="110" r="2.5" fill="#c7286b" opacity="0.5"/>
-<circle cx="150" cy="120" r="2.5" fill="#c7286b" opacity="0.5"/>
-<circle cx="110" cy="130" r="2.5" fill="#c7286b" opacity="0.5"/>
-<circle cx="140" cy="130" r="2.5" fill="#c7286b" opacity="0.5"/>
-<circle cx="120" cy="135" r="2.5" fill="#c7286b" opacity="0.5"/>
-<circle cx="130" cy="130" r="2.5" fill="#c7286b" opacity="0.5"/>
-<circle cx="155" cy="125" r="2.5" fill="#c7286b" opacity="0.5"/>
-<circle cx="95" cy="125" r="2.5" fill="#c7286b" opacity="0.5"/>
-<circle cx="108" cy="118" r="2.5" fill="#c7286b" opacity="0.5"/>
-<circle cx="137" cy="117" r="2.5" fill="#c7286b" opacity="0.5"/>
-<circle cx="123" cy="125" r="2.5" fill="#c7286b" opacity="0.5"/>
+<circle cx="110" cy="120" r="2.5" fill="#3d5b3f" opacity="0.5"/>
+<circle cx="125" cy="115" r="2.5" fill="#3d5b3f" opacity="0.5"/>
+<circle cx="140" cy="110" r="2.5" fill="#3d5b3f" opacity="0.5"/>
+<circle cx="100" cy="135" r="2.5" fill="#3d5b3f" opacity="0.5"/>
+<circle cx="130" cy="120" r="2.5" fill="#3d5b3f" opacity="0.5"/>
+<circle cx="115" cy="125" r="2.5" fill="#3d5b3f" opacity="0.5"/>
+<circle cx="145" cy="115" r="2.5" fill="#3d5b3f" opacity="0.5"/>
+<circle cx="120" cy="105" r="2.5" fill="#3d5b3f" opacity="0.5"/>
+<circle cx="135" cy="125" r="2.5" fill="#3d5b3f" opacity="0.5"/>
+<circle cx="105" cy="110" r="2.5" fill="#3d5b3f" opacity="0.5"/>
+<circle cx="150" cy="120" r="2.5" fill="#3d5b3f" opacity="0.5"/>
+<circle cx="110" cy="130" r="2.5" fill="#3d5b3f" opacity="0.5"/>
+<circle cx="140" cy="130" r="2.5" fill="#3d5b3f" opacity="0.5"/>
+<circle cx="120" cy="135" r="2.5" fill="#3d5b3f" opacity="0.5"/>
+<circle cx="130" cy="130" r="2.5" fill="#3d5b3f" opacity="0.5"/>
+<circle cx="155" cy="125" r="2.5" fill="#3d5b3f" opacity="0.5"/>
+<circle cx="95" cy="125" r="2.5" fill="#3d5b3f" opacity="0.5"/>
+<circle cx="108" cy="118" r="2.5" fill="#3d5b3f" opacity="0.5"/>
+<circle cx="137" cy="117" r="2.5" fill="#3d5b3f" opacity="0.5"/>
+<circle cx="123" cy="125" r="2.5" fill="#3d5b3f" opacity="0.5"/>
 <!-- Conformal ellipse (aggregate-fallback quantile) -->
-<ellipse cx="126" cy="120" rx="50" ry="30" fill="none" stroke="#c7286b" stroke-width="1.5" stroke-dasharray="4,2"/>
-<text x="185" y="108" font-size="10" fill="#c7286b" font-weight="600">conformal α=1e-4</text>
-<text x="185" y="120" font-size="10" fill="#c7286b" font-weight="600">quantile boundary</text>
+<ellipse cx="126" cy="120" rx="50" ry="30" fill="none" stroke="#3d5b3f" stroke-width="1.5" stroke-dasharray="4,2"/>
+<text x="185" y="108" font-size="10" fill="#3d5b3f" font-weight="600">conformal α=1e-4</text>
+<text x="185" y="120" font-size="10" fill="#3d5b3f" font-weight="600">quantile boundary</text>
 <!-- Novel point: far from all baseline samples -->
 <circle cx="240" cy="55" r="5" fill="#8a3324" stroke="#f3efe6" stroke-width="1.5"/>
 <text x="250" y="55" font-size="11" fill="#8a3324" font-weight="600">novel</text>
@@ -302,14 +302,14 @@ fill="none" stroke="#d18d2d" stroke-width="1.5"/>
 <line x1="140" y1="110" x2="240" y2="55" stroke="#8a3324" stroke-dasharray="2,2" stroke-width="0.8" opacity="0.6"/>
 <text x="180" y="80" font-size="9" fill="#8a3324" opacity="0.7" font-style="italic">Mahalanobis distance</text>
 <!-- Label for baseline cluster -->
-<text x="80" y="155" font-size="10" fill="#c7286b" font-weight="600">~16K held-out</text>
-<text x="80" y="167" font-size="10" fill="#c7286b" font-weight="600">healthy samples</text>
+<text x="80" y="155" font-size="10" fill="#3d5b3f" font-weight="600">~16K held-out</text>
+<text x="80" y="167" font-size="10" fill="#3d5b3f" font-weight="600">healthy samples</text>
 <!-- Annotations -->
 <g transform="translate(0, 240)">
-<text x="0" y="0" font-size="10" fill="#333">
+<text x="0" y="0" font-size="10" fill="#1c1a17" opacity="0.8">
 <tspan fill="#1c1a17" opacity="0.7">• no model of what "failure" looks like required</tspan>
 </text>
-<text x="0" y="14" font-size="10" fill="#c7286b" font-weight="600">• deploy's joint vector is too far from ANY healthy sample → FIRE</text>
+<text x="0" y="14" font-size="10" fill="#3d5b3f" font-weight="600">• deploy's joint vector is too far from ANY healthy sample → FIRE</text>
 </g>
 </g>
 </svg>
