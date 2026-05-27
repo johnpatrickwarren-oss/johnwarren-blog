@@ -7,8 +7,9 @@
 	--ink: #1c1a17;
 	--ink-muted: rgba(28, 26, 23, 0.65);
 	--ink-faint: rgba(28, 26, 23, 0.45);
-	--carmine: #b85a3a;
-	--carmine-dark: #8a3324;
+	--carmine: #3d5b3f;
+	--carmine-dark: #1f3d2a;
+	--alert: #8a3324;
 	--rule: rgba(28, 26, 23, 0.15);
 	--rule-soft: rgba(28, 26, 23, 0.08);
 	--tint: rgba(28, 26, 23, 0.05);
