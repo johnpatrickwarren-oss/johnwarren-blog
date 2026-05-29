@@ -5,7 +5,7 @@ pubDate: 'May 31 2026'
 heroImage: '/og/og_dynamic_workflows.png'
 ---
 
-Claude Code's new Dynamic Workflows are pitched as *"orchestrate agents in parallel while your session stays free."* I run a four-role agent methodology — [Anchor](https://github.com/johnpatrickwarren-oss/anchor), Architect → Implementer → Reviewer → Memorial — so the pitch read like it might erase the coordination overhead I'd been paying for. I built a proof-of-concept and measured it.
+A line about Claude Code's new Dynamic Workflows kept showing up in my X feed: *"orchestrate agents in parallel while your session stays free."* I run a four-role agent methodology — [Anchor](https://github.com/johnpatrickwarren-oss/anchor), Architect → Implementer → Reviewer → Memorial — so the framing read like it might erase the coordination overhead I'd been paying for. I built a proof-of-concept and measured it.
 
 The workflow cost about twice as much as the same task run through Anchor's normal multichat mode. The deeper finding, which the architecture made inevitable: there was never a saving available. You can't save on overhead you weren't paying.
 
@@ -13,7 +13,7 @@ The workflow cost about twice as much as the same task run through Anchor's norm
 
 ## "Free" is doing a lot of work in that sentence
 
-Here is the whole misread. *Free* in the Dynamic Workflows marketing does not mean *free of cost*. The docs use *free* and *responsive* as synonyms:
+Here is the whole misread, and it's a community read of the docs, not Anthropic's own announcement. The official launch leads with *"hundreds of parallel subagents in a single session"* and verification of outputs — scale and rigor, not no-cost magic. The *"free"* language sits in the docs, on the same page as the cost warning. There, *free* and *responsive* get used as synonyms:
 
 > "a runtime executes it **in the background while your session stays responsive**."
 >
@@ -27,7 +27,7 @@ On cost the docs are explicit, in a section the screenshots never include:
 
 > "A workflow spawns many agents, so **a single run can use meaningfully more tokens than working through the same task in conversation.** Runs count toward your plan's usage and rate limits like any other session."
 
-The marketing optimizes for *responsive and scalable*. The manual adds *and probably more expensive*. Both are true. The entire gap is in how one word gets read.
+Anthropic's announcement optimizes for *parallel and verified*. The docs add *responsive* alongside *probably more expensive*. The community pulls *responsive* forward to *free of charge*. All three are visible in the source material; the misread happens at the third step.
 
 ## What the primitive actually is
 
@@ -121,6 +121,6 @@ Those are real wins. None of them is "cheaper per token," and the documentation 
 
 ## Close
 
-Dynamic Workflows are a strong primitive for parallel, scalable, repeatable, background work. The documentation sells them honestly on those terms. The hype compresses *your session stays responsive* into *your session stays free*, and a reader hears *free of charge*. For sequential, cost-sensitive, human-in-the-loop work — the kind Anchor exists for — the measured answer matched the docs. The workflow cost about twice as much, gave up the mid-run escalation gate, and couldn't use its one superpower on a dependency chain.
+Dynamic Workflows are a strong primitive for parallel, scalable, repeatable, background work. Anthropic's own documentation sells them honestly on those terms — alongside an explicit cost warning. The community read compresses *your session stays responsive* into *your session stays free*, and a casual reader hears *free of charge*. For sequential, cost-sensitive, human-in-the-loop work — the kind Anchor exists for — the measured answer matched the docs. The workflow cost about twice as much, gave up the mid-run escalation gate, and couldn't use its one superpower on a dependency chain.
 
 Before you adopt something because it removes overhead, check whether you were paying that overhead in the first place.
