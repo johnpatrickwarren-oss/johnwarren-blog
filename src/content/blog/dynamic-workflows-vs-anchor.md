@@ -2,7 +2,7 @@
 title: 'Dynamic Workflows: the hype, the receipts, and where they sit next to Anchor'
 description: "What Claude Code's Dynamic Workflows actually are, why 'your session stays free' is not a cost claim, and what happened when I ran an Anchor cycle on them — measured both ways."
 pubDate: 'May 31 2026'
-heroImage: '/og/og_anchor.png'
+heroImage: '/og/og_dynamic_workflows.png'
 ---
 
 A line about Claude Code's new Dynamic Workflows kept showing up in my feed: *orchestrate agents in parallel while your session stays free.* I run a four-role agent methodology — [Anchor](https://github.com/johnpatrickwarren-oss/anchor), Architect → Implementer → Reviewer → Memorial — and "your session stays free" read like it might erase the coordination overhead I'd been paying for. So I built a small proof-of-concept and measured it.
