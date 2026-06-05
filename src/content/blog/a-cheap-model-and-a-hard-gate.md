@@ -2,6 +2,7 @@
 title: "A cheap model with a hard gate beats a frontier model with a good prompt"
 description: "I built a deterministic architecture gate, then tried to prove it worthless: does a capable model with a good prompt make it redundant? On a sample size of one it did, and I said so out loud. Repeats and a second model reversed it — prompt compliance is unreliable and model-dependent, and the efficient frontier for AI code quality turns out to be a weak model plus a hard gate. The full pre-registered experiment, with numbers."
 pubDate: 'Jun 4 2026'
+heroImage: '/og/og_cheap_model_hard_gate.png'
 ---
 
 In [an earlier post](/blog/arch-gate-vs-anchor/) I argued that AI-built codebases rot *structurally* — a god object accumulates across two hundred individually-fine commits, no per-diff review can see it coming, and the fix is a deterministic, ratcheted gate rather than more model tokens. I showed what that gate did when I turned it on five of my own repos: 35 god-files and 68 god-functions to zero, complexity held under a McCabe ratchet going forward. The gate is [`sprag`](https://github.com/johnpatrickwarren-oss/sprag); fused with an intent-interview on-ramp and dropped into the agent loop, the product is [anchor-guard](https://github.com/johnpatrickwarren-oss/anchor-guard).
@@ -61,13 +62,7 @@ It was also wrong. I just couldn't see it yet, because I'd run the strongest mod
 
 The fix for "I concluded too much from one run" is more runs. So I rebuilt the arms into the full ladder and ran it across **two models** — sonnet and opus — to see how much the answer depended on model capability.
 
-| god-function rate | **sonnet** | **opus** |
-|---|---|---|
-| L0 — naive | 90% | 80% |
-| L1 — generic | 90% | 80% |
-| L2 — rules | **10%** | **40%** |
-| L3 — self-review | **60%** | **0%** |
-| L4 — gate | **0%** | **0%** |
+![Paired bars showing god-function drift at each intervention level (L0 naive, L1 generic, L2 rules, L3 self-review, L4 gate) for sonnet and opus. Both ungated arms hover at 80–90%. L2 rules drops both significantly. L3 self-review reveals an asymmetry: opus drops to 0% but sonnet bounces back to 60% — worse than at L2. L4 gate brings both to near zero.](/og/fig_ladder_cheap_model_hard_gate.png)
 
 Two things jumped out, and both undercut the clean verdict from Act 1.
 
@@ -101,11 +96,7 @@ And the cost axis delivers the punchline. Read down the per-round numbers and th
 
 If a cheap model plus a gate beats an expensive model plus a prompt, the obvious next move is to go *cheaper still* — so I ran the same ladder on Haiku, the bottom of the current Claude range.
 
-| 30 rounds | drift (prompt) | drift (gate) | acceptance (gate) | gate cost | gate retries |
-|---|---|---|---|---|---|
-| opus | 27% | 0% | 100% | $13.69 | 8 |
-| **sonnet** | 47% | **3%** | **100%** | **$6.09** | 7 |
-| haiku | **93%** | 3% | **90%** | $6.40 | 24 |
+![Capability floor across three models. Comparison cards for opus, sonnet, and haiku showing drift under prompt vs gate, acceptance under gate, and cost over 30 rounds. Sonnet highlighted as the optimum: 3% drift, 100% acceptance, $6.09. Haiku gate-enforced drift also 3% but acceptance breaks to 90% and 24 retries push cost above sonnet. The gate cannot give a too-weak model the capability to comply correctly.](/og/fig_capability_floor_cheap_model_hard_gate.png)
 
 Two things happened, and the second is the important one.
 
