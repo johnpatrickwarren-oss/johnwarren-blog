@@ -62,6 +62,14 @@ It was also wrong. I just couldn't see it yet, because I'd run the strongest mod
 
 The fix for "I concluded too much from one run" is more runs. So I rebuilt the arms into the full ladder and ran it across **two models** — sonnet and opus — to see how much the answer depended on model capability.
 
+| god-function rate | **sonnet** | **opus** |
+|---|---|---|
+| L0 — naive | 90% | 80% |
+| L1 — generic | 90% | 80% |
+| L2 — rules | **10%** | **40%** |
+| L3 — self-review | **60%** | **0%** |
+| L4 — gate | **0%** | **0%** |
+
 Two things jumped out, and both undercut the clean verdict from Act 1.
 
 First, **a generic nudge is useless.** "Write clean, maintainable code" gave the same ~80–90% drift as saying nothing. You need the *specific* rules; vague exhortation does nothing.
@@ -73,6 +81,12 @@ The repeats had caught a confident, wrong conclusion. So I ran the decisive comp
 ## Act 3: the firmed numbers
 
 Six repetitions per arm, both models, thirty rounds each — enough to estimate the drift rate instead of guessing it. This time I also measured cost per round, because "lightest weight" is the actual goal and weight has to be a number, not an adjective.
+
+| god-function drift | **sonnet** | **opus** |
+|---|---|---|
+| L2 — rules | **47%** · $0.15/rd | **27%** · $0.28/rd |
+| L3 — self-review | **47%** · $0.18/rd | **10%** · $0.31/rd |
+| **L4 — gate** | **3%** · $0.20/rd | **0%** · $0.46/rd |
 
 Now the picture is firm:
 
