@@ -2,7 +2,6 @@
 title: "A cheap model with a hard gate beats a frontier model with a good prompt"
 description: "I built a deterministic architecture gate, then tried to prove it worthless: does a capable model with a good prompt make it redundant? On a sample size of one it did, and I said so out loud. Repeats and a second model reversed it — prompt compliance is unreliable and model-dependent, and the efficient frontier for AI code quality turns out to be a weak model plus a hard gate. The full pre-registered experiment, with numbers."
 pubDate: 'Jun 4 2026'
-heroImage: '/og/og_arch_gate.png'
 ---
 
 In [an earlier post](/blog/arch-gate-vs-anchor/) I argued that AI-built codebases rot *structurally* — a god object accumulates across two hundred individually-fine commits, no per-diff review can see it coming, and the fix is a deterministic, ratcheted gate rather than more model tokens. I showed what that gate did when I turned it on five of my own repos: 35 god-files and 68 god-functions to zero, complexity held under a McCabe ratchet going forward. The gate is [`sprag`](https://github.com/johnpatrickwarren-oss/sprag); fused with an intent-interview on-ramp and dropped into the agent loop, the product is [anchor-guard](https://github.com/johnpatrickwarren-oss/anchor-guard).
@@ -102,34 +101,11 @@ And the cost axis delivers the punchline. Read down the per-round numbers and th
 
 If a cheap model plus a gate beats an expensive model plus a prompt, the obvious next move is to go *cheaper still* — so I ran the same ladder on Haiku, the bottom of the current Claude range.
 
-<figure class="family-figure">
-<svg viewBox="0 0 680 310" role="img" aria-label="God-function drift by model, told the rules versus gated: opus 27% to 0%, sonnet 47% to 3%, haiku 93% to 3%. Drift climbs as the model gets cheaper; the gate holds it flat near zero.">
-  <rect x="64" y="22" width="14" height="14" fill="#b45309"/>
-  <text x="84" y="33" font-family="ui-monospace, monospace" font-size="13" fill="#57534e">told the rules</text>
-  <rect x="208" y="22" width="14" height="14" fill="#15803d"/>
-  <text x="228" y="33" font-family="ui-monospace, monospace" font-size="13" fill="#57534e">gated</text>
-  <line x1="64" y1="270" x2="648" y2="270" stroke="#d6d3d1" stroke-width="1"/>
-  <!-- opus -->
-  <rect x="104" y="216" width="50" height="54" fill="#b45309"/>
-  <rect x="168" y="268" width="50" height="2" fill="#15803d"/>
-  <text x="129" y="208" text-anchor="middle" font-family="ui-monospace, monospace" font-size="13" fill="#b45309">27%</text>
-  <text x="193" y="262" text-anchor="middle" font-family="ui-monospace, monospace" font-size="13" fill="#15803d">0%</text>
-  <text x="161" y="290" text-anchor="middle" font-family="ui-monospace, monospace" font-size="14" fill="#44403c">opus</text>
-  <!-- sonnet -->
-  <rect x="299" y="176" width="50" height="94" fill="#b45309"/>
-  <rect x="363" y="264" width="50" height="6" fill="#15803d"/>
-  <text x="324" y="168" text-anchor="middle" font-family="ui-monospace, monospace" font-size="13" fill="#b45309">47%</text>
-  <text x="388" y="258" text-anchor="middle" font-family="ui-monospace, monospace" font-size="13" fill="#15803d">3%</text>
-  <text x="356" y="290" text-anchor="middle" font-family="ui-monospace, monospace" font-size="14" fill="#44403c">sonnet</text>
-  <!-- haiku -->
-  <rect x="494" y="84" width="50" height="186" fill="#b45309"/>
-  <rect x="558" y="264" width="50" height="6" fill="#15803d"/>
-  <text x="519" y="76" text-anchor="middle" font-family="ui-monospace, monospace" font-size="13" fill="#b45309">93%</text>
-  <text x="583" y="258" text-anchor="middle" font-family="ui-monospace, monospace" font-size="13" fill="#15803d">3%</text>
-  <text x="551" y="290" text-anchor="middle" font-family="ui-monospace, monospace" font-size="14" fill="#44403c">haiku</text>
-</svg>
-<figcaption>Share of rounds with a god-function (cyclomatic &gt; 8), 30 rounds per cell. Told the rules, drift climbs as the model gets cheaper — 27% &rarr; 47% &rarr; 93%; under the gate it stays flat near zero. The gate decouples complexity from model quality. The catch is behavioral: forced to refactor, Haiku held complexity at 3% but its acceptance fell to 90% (vs 100% for sonnet and opus), and 24 fix-retries pushed Haiku+gate to $6.40 — more than sonnet+gate's $6.09.</figcaption>
-</figure>
+| 30 rounds | drift (prompt) | drift (gate) | acceptance (gate) | gate cost | gate retries |
+|---|---|---|---|---|---|
+| opus | 27% | 0% | 100% | $13.69 | 8 |
+| **sonnet** | 47% | **3%** | **100%** | **$6.09** | 7 |
+| haiku | **93%** | 3% | **90%** | $6.40 | 24 |
 
 Two things happened, and the second is the important one.
 
