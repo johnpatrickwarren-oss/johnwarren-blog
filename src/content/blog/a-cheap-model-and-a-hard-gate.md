@@ -97,12 +97,30 @@ And the cost axis delivers the punchline. Read down the per-round numbers and th
 
 **sonnet + gate — 3% drift at $0.20/round — is cheaper than every opus configuration and cleaner than every opus *prompt* arm.** Opus with its best prompt (self-review) still drifts 10% and costs $0.31/round — 55% more, for worse reliability. The only thing strictly better than sonnet+gate is opus+gate (0%), and that costs $0.46/round — 2.3× the price for a three-point gain.
 
+## How far down does it go? (the capability floor)
+
+If a cheap model plus a gate beats an expensive model plus a prompt, the obvious next move is to go *cheaper still* — so I ran the same ladder on Haiku, the bottom of the current Claude range.
+
+| 30 rounds | drift (prompt) | drift (gate) | acceptance (gate) | gate cost | gate retries |
+|---|---|---|---|---|---|
+| opus | 27% | 0% | 100% | $13.69 | 8 |
+| **sonnet** | 47% | **3%** | **100%** | **$6.09** | 7 |
+| haiku | **93%** | 3% | **90%** | $6.40 | 24 |
+
+Two things happened, and the second is the important one.
+
+First, the gradient held in the obvious direction: ungated, Haiku is nearly unusable — told the rules, it drifts into a god-function in **93% of rounds.** That alone answers a question people ask ("does anyone use Haiku for code?"): not ungated, you can't.
+
+Second — and this is where the clean story breaks — **the gate forced complexity down to 3%, but Haiku's acceptance dropped to 90%.** Made to decompose a god-function it couldn't refactor safely, the cheapest model started *breaking the feature* to satisfy the gate. The gate can impose the structural standard on any model; it cannot give a too-weak model the *capability* to comply correctly. Quality decouples from model on the *structural* axis, not the *behavioral* one. And the cost advantage evaporated too: 24 fix-retries pushed Haiku+gate to $6.40 — *more* than sonnet+gate, for worse correctness.
+
+So you can't just keep going cheaper. **sonnet + gate isn't merely the cheapest point — it's a genuine optimum, sitting right on a capability floor.** Below it, the gate's fix-loop both costs more and breaks things; above it, you're paying for headroom the gate already provides.
+
 ## What it actually means
 
 I set out to answer "is the deterministic gate worth it?" and the honest, firmed answer is not the one I expected, in either direction:
 
 - The claim I *had* been making — "a deterministic gate makes a capable agent write better code" — is **false** for a frontier model with a good prompt. That was worth finding out, and worth retracting.
-- The claim the data actually supports is sharper and more useful: **a cheap model plus a hard gate is the lightest-weight, highest-performing way to get clean AI code.** Not "better code from a good model." *Trustworthy code from a cheap one* — at a lower bill than running the good model at all.
+- The claim the data actually supports is sharper and more useful: **a cheap-but-capable-enough model plus a hard gate is the lightest-weight, highest-performing way to get clean AI code** — with "capable enough" being load-bearing, because Haiku showed there's a floor. Not "better code from a good model." *Trustworthy code from a cheaper one* — at a lower bill than running the good model at all, down to the point where the model can still fix what the gate flags.
 
 That reframes the product and even its ideal customer. anchor-guard isn't for the careful senior engineer pairing with opus and a thoughtful `CLAUDE.md`; that person mostly doesn't need it. It's for the team running *fleets* of cheap, fast, semi-supervised agents, where compliance-by-prompt is a coin flip and the only thing standing between you and a slow accumulation of god objects is something deterministic that can't be talked past. The gate converts a probabilistic hope into a guarantee, and it lets you buy that guarantee with a cheaper model.
 
