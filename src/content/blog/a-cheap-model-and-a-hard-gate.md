@@ -62,14 +62,6 @@ It was also wrong. I just couldn't see it yet, because I'd run the strongest mod
 
 The fix for "I concluded too much from one run" is more runs. So I rebuilt the arms into the full ladder and ran it across **two models** — sonnet and opus — to see how much the answer depended on model capability.
 
-| god-function rate | **sonnet** | **opus** |
-|---|---|---|
-| L0 — naive | 90% | 80% |
-| L1 — generic | 90% | 80% |
-| L2 — rules | **10%** | **40%** |
-| L3 — self-review | **60%** | **0%** |
-| L4 — gate | **0%** | **0%** |
-
 ![Paired bars showing god-function drift at each intervention level (L0 naive, L1 generic, L2 rules, L3 self-review, L4 gate) for sonnet and opus. Both ungated arms hover at 80–90%. L2 rules drops both significantly. L3 self-review reveals an asymmetry: opus drops to 0% but sonnet bounces back to 60% — worse than at L2. L4 gate brings both to near zero.](/og/fig_ladder_cheap_model_hard_gate.png)
 
 Two things jumped out, and both undercut the clean verdict from Act 1.
@@ -103,12 +95,6 @@ And the cost axis delivers the punchline. Read down the per-round numbers and th
 ## How far down does it go? (the capability floor)
 
 If a cheap model plus a gate beats an expensive model plus a prompt, the obvious next move is to go *cheaper still* — so I ran the same ladder on Haiku, the bottom of the current Claude range.
-
-| 30 rounds | drift (prompt) | drift (gate) | acceptance (gate) | gate cost | gate retries |
-|---|---|---|---|---|---|
-| opus | 27% | 0% | 100% | $13.69 | 8 |
-| **sonnet** | 47% | **3%** | **100%** | **$6.09** | 7 |
-| haiku | **93%** | 3% | **90%** | $6.40 | 24 |
 
 ![Capability floor across three models. Comparison cards for opus, sonnet, and haiku showing drift under prompt vs gate, acceptance under gate, and cost over 30 rounds. Sonnet highlighted as the optimum: 3% drift, 100% acceptance, $6.09. Haiku gate-enforced drift also 3% but acceptance breaks to 90% and 24 retries push cost above sonnet. The gate cannot give a too-weak model the capability to comply correctly.](/og/fig_capability_floor_cheap_model_hard_gate.png)
 
