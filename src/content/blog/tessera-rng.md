@@ -17,6 +17,8 @@ RNG removes the choke points on purpose. The paper's structure is a quasi-random
 
 So the cheap network ships with one operational bill attached. When something degrades, the topology that used to answer "where" has nothing to say.
 
+![Fat-tree vs random-graph: a faulted switch in a tree drops a predictable cone that points back at the cause; in a random graph the same fault spreads thin across many paths with no shape to follow.](/blog/tessera-rng/fat-tree-vs-rng.png)
+
 ## The part that transferred for free
 
 [Tessera](/blog/tessera/) was built for GPU clusters: shard observability across thousands of correlated shards. I took the layer that does the localizing — designed for cluster shards — and pointed it at a network. That layer never relied on hop distance or hierarchy, the cluster's or the network's. It localizes to a shared-resource *fault domain* by watching many monitored entities at once, finding where they stop agreeing, and attributing the disagreement to the physical resource they have in common — a tomographic solver over a fault-domain incidence hypergraph, not a walk over the wiring. None of that asks how many hops apart two things are.
