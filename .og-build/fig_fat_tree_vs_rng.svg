@@ -1,0 +1,128 @@
+<svg viewBox="0 0 1200 660" width="1200" height="660" xmlns="http://www.w3.org/2000/svg" role="img">
+<title>Fat-tree vs random-graph: why a flat network has no hierarchy to blame</title>
+<desc>Two panels. Left: a fat-tree where a faulted switch drops a predictable cone of traffic, so the damage points back up the hierarchy at the cause. Right: a random-graph expander where one faulted router's damage is spread thin across many crossing paths, so no shape points at the cause.</desc>
+<style>
+  .serif { font-family: Georgia, 'Times New Roman', serif; }
+  .sans  { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif; }
+  .over  { font-size: 13px; letter-spacing: 2.5px; fill: #3a5a40; font-weight: 600; }
+  .h1    { font-size: 30px; fill: #2b2b29; font-weight: 700; }
+  .pt    { font-size: 23px; fill: #2b2b29; font-weight: 700; }
+  .psub  { font-size: 15px; fill: #73726c; font-style: italic; }
+  .cap   { font-size: 14px; fill: #5d5c57; }
+  .lbl   { font-size: 12.5px; fill: #8a887f; }
+  .foot  { font-size: 12.5px; fill: #9a988f; letter-spacing: 0.5px; }
+</style>
+
+<!-- background -->
+<rect x="0" y="0" width="1200" height="660" fill="#F3EFE6"/>
+<rect x="0" y="0" width="1200" height="8" fill="#3a5a40"/>
+
+<!-- header -->
+<text class="sans over" x="60" y="56">TESSERA-RNG · FAULT LOCALIZATION</text>
+<text class="serif h1" x="60" y="98">Why a flat network has no hierarchy to blame</text>
+<line x1="60" y1="124" x2="1140" y2="124" stroke="#d9d4c7" stroke-width="1"/>
+
+<!-- vertical divider -->
+<line x1="600" y1="150" x2="600" y2="600" stroke="#e2ddd0" stroke-width="1"/>
+
+<!-- ===================== LEFT: FAT-TREE ===================== -->
+<text class="serif pt"  x="60" y="186">Fat-tree</text>
+<text class="sans psub" x="60" y="210">topology tells you where</text>
+
+<!-- tree edges: cone under the faulted spine S1 is red -->
+<g stroke-linecap="round" fill="none">
+  <!-- healthy (gray) -->
+  <line x1="400" y1="270" x2="390" y2="350" stroke="#cfccc3" stroke-width="1.8"/>
+  <line x1="400" y1="270" x2="500" y2="350" stroke="#cfccc3" stroke-width="1.8"/>
+  <line x1="390" y1="350" x2="390" y2="440" stroke="#cfccc3" stroke-width="1.8"/>
+  <line x1="500" y1="350" x2="470" y2="440" stroke="#cfccc3" stroke-width="1.8"/>
+  <line x1="500" y1="350" x2="540" y2="440" stroke="#cfccc3" stroke-width="1.8"/>
+  <!-- damaged cone (red) under S1 -->
+  <line x1="230" y1="270" x2="150" y2="350" stroke="#9b2d2d" stroke-width="2.4"/>
+  <line x1="230" y1="270" x2="280" y2="350" stroke="#9b2d2d" stroke-width="2.4"/>
+  <line x1="150" y1="350" x2="110" y2="440" stroke="#9b2d2d" stroke-width="2.4"/>
+  <line x1="150" y1="350" x2="180" y2="440" stroke="#9b2d2d" stroke-width="2.4"/>
+  <line x1="280" y1="350" x2="250" y2="440" stroke="#9b2d2d" stroke-width="2.4"/>
+  <line x1="280" y1="350" x2="320" y2="440" stroke="#9b2d2d" stroke-width="2.4"/>
+</g>
+
+<!-- agg + tor nodes: cone members tinted -->
+<g stroke="#aaa79e" stroke-width="1.2">
+  <!-- healthy nodes -->
+  <circle cx="400" cy="270" r="9" fill="#c2bfb6"/>
+  <circle cx="390" cy="350" r="8" fill="#c2bfb6"/>
+  <circle cx="500" cy="350" r="8" fill="#c2bfb6"/>
+  <circle cx="390" cy="440" r="7.5" fill="#c2bfb6"/>
+  <circle cx="470" cy="440" r="7.5" fill="#c2bfb6"/>
+  <circle cx="540" cy="440" r="7.5" fill="#c2bfb6"/>
+  <!-- cone nodes (red-tinted) -->
+  <circle cx="150" cy="350" r="8" fill="#cf9b92"/>
+  <circle cx="280" cy="350" r="8" fill="#cf9b92"/>
+  <circle cx="110" cy="440" r="7.5" fill="#cf9b92"/>
+  <circle cx="180" cy="440" r="7.5" fill="#cf9b92"/>
+  <circle cx="250" cy="440" r="7.5" fill="#cf9b92"/>
+  <circle cx="320" cy="440" r="7.5" fill="#cf9b92"/>
+</g>
+<!-- faulted spine -->
+<circle cx="230" cy="270" r="12" fill="#9b2d2d" stroke="#7d2222" stroke-width="1.5"/>
+<text class="sans lbl" x="230" y="248" text-anchor="middle" fill="#9b2d2d">faulted switch</text>
+
+<text class="sans cap" x="60" y="528">A sick switch drops a predictable cone of traffic.</text>
+<text class="sans cap" x="60" y="550">The shape of the damage points straight back at the cause.</text>
+
+<!-- ===================== RIGHT: RANDOM GRAPH ===================== -->
+<text class="serif pt"  x="640" y="186">Random graph</text>
+<text class="sans psub" x="640" y="210">the fault is everywhere and nowhere</text>
+
+<!-- expander edges: many crossings; the faulted node's edges (red) are diluted among gray -->
+<g stroke-linecap="round" fill="none">
+  <!-- gray mesh -->
+  <line x1="710" y1="285" x2="830" y2="265" stroke="#cfccc3" stroke-width="1.6"/>
+  <line x1="830" y1="265" x2="960" y2="280" stroke="#cfccc3" stroke-width="1.6"/>
+  <line x1="960" y1="280" x2="1085" y2="300" stroke="#cfccc3" stroke-width="1.6"/>
+  <line x1="710" y1="285" x2="665" y2="365" stroke="#cfccc3" stroke-width="1.6"/>
+  <line x1="1085" y1="300" x2="1075" y2="375" stroke="#cfccc3" stroke-width="1.6"/>
+  <line x1="960" y1="280" x2="940" y2="360" stroke="#cfccc3" stroke-width="1.6"/>
+  <line x1="665" y1="365" x2="720" y2="440" stroke="#cfccc3" stroke-width="1.6"/>
+  <line x1="940" y1="360" x2="1000" y2="440" stroke="#cfccc3" stroke-width="1.6"/>
+  <line x1="940" y1="360" x2="855" y2="445" stroke="#cfccc3" stroke-width="1.6"/>
+  <line x1="1075" y1="375" x2="1110" y2="415" stroke="#cfccc3" stroke-width="1.6"/>
+  <line x1="1075" y1="375" x2="1000" y2="440" stroke="#cfccc3" stroke-width="1.6"/>
+  <line x1="720" y1="440" x2="855" y2="445" stroke="#cfccc3" stroke-width="1.6"/>
+  <line x1="855" y1="445" x2="1000" y2="440" stroke="#cfccc3" stroke-width="1.6"/>
+  <line x1="1000" y1="440" x2="1110" y2="415" stroke="#cfccc3" stroke-width="1.6"/>
+  <line x1="830" y1="265" x2="940" y2="360" stroke="#cfccc3" stroke-width="1.6"/>
+  <line x1="710" y1="285" x2="960" y2="280" stroke="#cfccc3" stroke-width="1.6"/>
+  <line x1="1085" y1="300" x2="940" y2="360" stroke="#cfccc3" stroke-width="1.6"/>
+  <!-- faulted node R6 (800,350) edges, red but spread thin -->
+  <line x1="800" y1="350" x2="830" y2="265" stroke="#9b2d2d" stroke-width="2.2"/>
+  <line x1="800" y1="350" x2="665" y2="365" stroke="#9b2d2d" stroke-width="2.2"/>
+  <line x1="800" y1="350" x2="940" y2="360" stroke="#9b2d2d" stroke-width="2.2"/>
+  <line x1="800" y1="350" x2="855" y2="445" stroke="#9b2d2d" stroke-width="2.2"/>
+  <line x1="800" y1="350" x2="710" y2="285" stroke="#9b2d2d" stroke-width="2.2"/>
+</g>
+
+<g stroke="#aaa79e" stroke-width="1.2">
+  <circle cx="710" cy="285" r="8" fill="#c2bfb6"/>
+  <circle cx="830" cy="265" r="8" fill="#c2bfb6"/>
+  <circle cx="960" cy="280" r="8" fill="#c2bfb6"/>
+  <circle cx="1085" cy="300" r="8" fill="#c2bfb6"/>
+  <circle cx="665" cy="365" r="8" fill="#c2bfb6"/>
+  <circle cx="940" cy="360" r="8" fill="#c2bfb6"/>
+  <circle cx="1075" cy="375" r="8" fill="#c2bfb6"/>
+  <circle cx="720" cy="440" r="8" fill="#c2bfb6"/>
+  <circle cx="855" cy="445" r="8" fill="#c2bfb6"/>
+  <circle cx="1000" cy="440" r="8" fill="#c2bfb6"/>
+  <circle cx="1110" cy="415" r="8" fill="#c2bfb6"/>
+</g>
+<!-- faulted router -->
+<circle cx="800" cy="350" r="12" fill="#9b2d2d" stroke="#7d2222" stroke-width="1.5"/>
+<text class="sans lbl" x="800" y="328" text-anchor="middle" fill="#9b2d2d">faulted router</text>
+
+<text class="sans cap" x="640" y="528">Lose 1% of routers, lose 1% of capacity —</text>
+<text class="sans cap" x="640" y="550">but the network won't tell you which 1%.</text>
+
+<!-- footer -->
+<line x1="60" y1="600" x2="1140" y2="600" stroke="#d9d4c7" stroke-width="1"/>
+<text class="sans foot" x="60" y="628">johnpwarren.dev/blog · the same redundancy that makes RNG cheap is what erases the fault signal</text>
+</svg>
