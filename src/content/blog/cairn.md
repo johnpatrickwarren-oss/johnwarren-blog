@@ -5,7 +5,7 @@ pubDate: 'May 29 2026'
 heroImage: '/og/og_cairn.png'
 ---
 
-The first four posts in this series walked forward through the lifecycle: [DeploySignal](/blog/deploysignal/) at promotion, [Anvil](/blog/anvil/) for chaos experiments, [Tessera](/blog/tessera/) for steady-state observation. Each runs the engine in a different operational direction.
+Earlier posts in this series walked forward through the lifecycle: [DeploySignal](/blog/deploysignal/) at promotion, [Anvil](/blog/anvil/) for chaos experiments, [Tessera](/blog/tessera/) for steady-state observation. Each runs the engine in a different operational direction.
 
 Cairn answers the question that comes when all three were insufficient: the regression escaped, landed in production, and now the operator has to figure out what caused it.
 

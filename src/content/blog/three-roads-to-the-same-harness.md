@@ -144,7 +144,7 @@ coordination/
 └── dispositions/D-NN.md            # one file per CRITICAL disposition
 ```
 
-By the end of DeploySignal, this tree held 250 coordination files: 95 architect replies, 90 TPM replies, 14 reviewer reports, 13 diagnostic memos, 7 postmortems, and 16 Q-spec documents (each a topic with its own multi-round investigation). None of them were minutes-of-meeting in the traditional sense. Each was a load-bearing artifact in the round it was produced — a spec the Implementer had to read, a review the Architect had to respond to, an investigation chain that determined what shipped.
+By the end of DeploySignal, this tree held 250 coordination files — among them 95 architect replies, 90 TPM replies, 14 reviewer reports, 13 diagnostic memos, 7 postmortems, and 16 Q-spec documents (each a topic with its own multi-round investigation). None of them were minutes-of-meeting in the traditional sense. Each was a load-bearing artifact in the round it was produced — a spec the Implementer had to read, a review the Architect had to respond to, an investigation chain that determined what shipped.
 
 What this enforces, in practice, is a discipline against treating spec or routing decisions as ambient context. Every Q-spec opens with an explicit `## Existing architectural surface` section — a citation table of every file referenced, with pinned SHA, line range, and a verbatim snippet of the cited code. Empty rows or paraphrased snippets fail the Reviewer audit automatically. The artifact has to demonstrate that the Architect actually opened the files, not just remembered them.
 

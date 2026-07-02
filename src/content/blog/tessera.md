@@ -1,6 +1,6 @@
 ---
 title: 'Tessera: same engine, different scope, and what Anchor-from-round-1 looks like'
-description: 'How Tessera adapts the DeploySignal engine for cluster-scope observation, and what 67 rounds of methodology-from-round-1 produced.'
+description: 'How Tessera adapts the DeploySignal engine for cluster-scope observation, and what 78 rounds of methodology-from-round-1 produced.'
 pubDate: 'May 27 2026'
 heroImage: '/og/og_tessera.png'
 ---
@@ -11,7 +11,7 @@ The [previous post in this series](/blog/deploysignal/) closed on a question: wh
 
 The shift sounds small. It isn't. Continuous observation across N shards introduces three problems that single-canary work doesn't have: multiple testing (false positives compound across N concurrent verdicts), topology-aware grouping (a failure on three shards sharing a rack is a different signal than three uncorrelated shard failures), and known-disruption suppression (during a firmware push, statistical noise is expected, not a regression). Each gets a section below.
 
-Tessera also has a different relationship to the methodology. DeploySignal was where [Anchor](/blog/three-roads-to-the-same-harness/) emerged — the disciplines were distilled along the way, sometimes painfully. Tessera was built using Anchor from round 1, with about fifteen inherited disciplines plus the cross-project memorial. Sixty-seven rounds in, it's the first project where I can compare "methodology applied from start" against "methodology distilled along the way." The comparison is the second half of this post.
+Tessera also has a different relationship to the methodology. DeploySignal was where [Anchor](/blog/three-roads-to-the-same-harness/) emerged — the disciplines were distilled along the way, sometimes painfully. Tessera was built using Anchor from round 1, with about fifteen inherited disciplines plus the cross-project memorial. Seventy-eight rounds in, it's the first project where I can compare "methodology applied from start" against "methodology distilled along the way." The comparison is the second half of this post.
 
 ## The operational shift
 
@@ -43,7 +43,7 @@ Tessera's residual semantics adapt the same detectors to per-shard observation. 
 
 Each tick produces a per-shard residual vector — observed signal minus pool prediction — and Families A/C/D/E run against those residuals exactly as they ran against canary signals in DeploySignal. Family A catches a shard drifting against its hierarchical baseline. Family C catches joint-distribution shifts in the residual vector. Family D catches periodic patterns appearing in residuals that should have been white-noise. Family E flags residual patterns that fall outside the fleet's healthy calibration region.
 
-The architectural payoff: a shard with a silent SDC producing subtle correctness drift won't fail any individual signal threshold, but its residual vector will look wrong against the hierarchical pool. The R72 saturation matrix measured this — at default settings, Tessera detects 16/20 sdc-drift trials with ≥95% attribution accuracy (correct shard identified).
+The architectural payoff: a shard with a silent SDC producing subtle correctness drift won't fail any individual signal threshold, but its residual vector will look wrong against the hierarchical pool. The R72 saturation matrix measured this — at default settings, Tessera detects 18/20 sdc-drift trials with 100% attribution accuracy on the detected trials (correct shard identified).
 
 ### e-BH FDR control
 
@@ -53,7 +53,7 @@ Standard False Discovery Rate (FDR) control adjusts thresholds to keep the *prop
 
 The e-BH procedure (Wang & Ramdas, 2022, plus subsequent refinements) is the anytime-valid analogue. It controls FDR over the per-shard verdict surface at a target rate (Tessera defaults to 5%) while remaining valid at any stopping time the operator chooses. The trade is conservative: at equal nominal FDR, e-BH is slightly less powerful than fixed-sample BH would be. The trade is worth it because the alternative is silently invalid FDR claims.
 
-Operationally: each tick, Tessera collects per-shard e-process values, runs e-BH at α_FDR=0.05, and rejects the subset that survives. The audit record carries per-shard verdict, per-shard e-value, the e-BH cutoff that tick, and the rejected set. R72 measured FDR control empirically across 20 parameter variations on the `fdr-multiple-testing` failure type: 16/20 detection rate with ≥95% attribution accuracy — the FDR guarantee held.
+Operationally: each tick, Tessera collects per-shard e-process values, runs e-BH at α_FDR=0.05, and rejects the subset that survives. The audit record carries per-shard verdict, per-shard e-value, the e-BH cutoff that tick, and the rejected set. R72 measured FDR control empirically across 20 parameter variations on the `fdr-multiple-testing` failure type: 20/20 detection rate with 100% attribution accuracy — the FDR guarantee held.
 
 This is the load-bearing math claim of Tessera: continuous per-shard observation with formal FDR guarantees, not a heuristic "alert if N shards fire."
 
@@ -87,7 +87,7 @@ A8 and A11 carve-outs are explicit: at v1, Tessera only consumes operator-contro
 
 ## The methodology applied from round 1
 
-### 67 rounds, 440 tests, what's different
+### 78 rounds, 440+ tests, what's different
 
 DeploySignal's first twenty rounds produced multiple expensive failures of types I didn't yet have explicit disciplines for. The Topic 52 phantom chain, the σ² compile-time underflow, the wrong-premise architect spec — each of those cost wall-clock days, and each produced a discipline I memorialized after the fact.
 
@@ -97,7 +97,7 @@ Not because the work was easier — Tessera vendors a different operational scop
 
 The cross-project memorial brought about fifteen inherited disciplines forward. Some applied directly (file-opened discipline, anti-self-confirming-test patterns); some applied with adjustment (the V/Q framework adapted from investigation-chain bounding to architectural-decision bounding). What didn't happen: rediscovering disciplines that DeploySignal had already paid for.
 
-By R67, Tessera ships 440+ tests, a coverage matrix across 6 failure types × 20 parameter variations (R72), a detection envelope across 504 cells / 2,520 trials (R77), and a topology-walk tuning envelope (R78). The audit trail is the project's git history — every round's role-tagged commits, cold-eye Reviewer reports, Memorial-Updater outputs, and ESCALATE-resolution patterns. Public.
+By R78, Tessera ships 440+ tests, a coverage matrix across 6 failure types × 20 parameter variations (R72), a detection envelope across 504 cells / 2,520 trials (R77), and a topology-walk tuning envelope (R78). The audit trail is the project's git history — every round's role-tagged commits, cold-eye Reviewer reports, Memorial-Updater outputs, and ESCALATE-resolution patterns. Public.
 
 ### New disciplines that emerged
 
