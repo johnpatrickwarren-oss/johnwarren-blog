@@ -362,7 +362,7 @@ This is the property that turns DeploySignal from a black-box decision system in
 
 I didn't set out to invent a methodology. I set out to build DeploySignal. The methodology emerged because the project was statistically nontrivial — the math anchors are multi-paper; the calibration choices are load-bearing in subtle ways; the test coverage has to be rigorous enough that a wrong assumption about how a Cholesky factor is computed turns into a CRITICAL bug that only surfaces under perturbation. Single-pass agent generation produced code that compiled, passed surface-level tests, and would have shipped wrong.
 
-So I structured the work as multi-role: one chat for Architect (the specs), one for Implementer (the code), one for Reviewer (audit), one for TPM (routing between the others), one for the PM role I held myself. Each role got per-chat project instructions pinning its identity. Coordination state lived in files in a `coordination/` directory rather than in chat history.
+So I structured the work as multi-role: one chat for Architect (the specs), one for Implementer (the code), one for Reviewer (audit), one for TPM (routing between the others) — four agent roles — plus the PM seat, which I held myself. Each role got per-chat project instructions pinning its identity. Coordination state lived in files in a `coordination/` directory rather than in chat history.
 
 By around the second week, the directory had 100+ files and patterns started to repeat. The Architect was making the same kinds of attribution mistakes across different topics. The Implementer was committing similar omissions on different specs. The Reviewer was catching the same classes of bug across rounds. Each failure suggested a discipline that, if codified, would have prevented it.
 
@@ -390,7 +390,7 @@ None of these disciplines were known in advance. All of them were learned by fai
 
 ### The methodology turning around
 
-By the time DeploySignal closed, there were about twenty named disciplines and a clear sense of which ones were load-bearing. I wrote them up as Anchor — disciplines, templates, worked example — and published it as a standalone repo. I hadn't set out to build a methodology pack; I'd just noticed patterns that seemed like they'd be useful to anyone running multi-role agent work, and writing them up as a pack was the cheapest way to share them.
+By the time DeploySignal closed, there were about a dozen named disciplines and a clear sense of which ones were load-bearing (the pack has since grown past fifteen as later projects added their own). I wrote them up as Anchor — disciplines, templates, worked example — and published it as a standalone repo. I hadn't set out to build a methodology pack; I'd just noticed patterns that seemed like they'd be useful to anyone running multi-role agent work, and writing them up as a pack was the cheapest way to share them.
 
 Then I started Tessera using Anchor from round 1.
 

@@ -64,7 +64,7 @@ The shape is consistent: the oldest, longest-running systems (deploysignal, runw
 
 ## Complexity is the line now, not length
 
-Driving god-files and god-functions to zero was the visible win, but it's the cheap half — and length is a crude proxy, as I said above: a long-but-flat function is fine, a short and deeply-branched one is not. So I took my own advice. The gate's **primary signal is now McCabe cyclomatic complexity (>12)**; raw length stays only as a >150-line backstop. It's ratcheted on all five gated repos:
+Driving god-files and god-functions to zero was the visible win, but it's the cheap half — and length is a crude proxy, as I said above: a long-but-flat function is fine, a short and deeply-branched one is not. So I took my own advice. The gate's **primary signal is now McCabe cyclomatic complexity (>12)**; raw length stays only as a >150-line backstop. It's ratcheted on the five repos in the table below (not the identical five as the cleanup table above — deploysignal-engine's cleanup landed before the complexity ratchet rolled out, while cairn, which scanned nearly clean, is gated going forward):
 
 | Repo | Gate watches | Complexity it freezes (blocks above) |
 |---|---|---|
