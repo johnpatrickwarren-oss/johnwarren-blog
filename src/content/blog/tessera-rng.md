@@ -40,7 +40,7 @@ Two of the detectors see shifts that no per-metric line can. One watches the joi
 
 ## How well it works, measured
 
-The repo publishes a coverage matrix that is the real answer to "does this work," so here is its shape rather than an adjective. Magnitudes are in units of the calibrated per-path residual's standard deviation: Δ=2 means the path-classes crossing the faulted resource shift by about two sigma, before dilution.
+The repo publishes a coverage matrix that is the real answer to "does this work," so here is its shape rather than an adjective. Magnitudes are in units of the calibrated per-path residual's standard deviation: Δ=2 means the path-classes crossing the faulted resource shift by about two sigma, before dilution. If sigma isn't your daily unit: one sigma is a path's normal tick-to-tick jitter, after the system has accounted for hour of day and traffic class. A 2σ fault moves the average by twice that jitter — obvious in hindsight on a graph, but comfortably inside the range where a static threshold stays green.
 
 | condition | measured result |
 |---|---|
