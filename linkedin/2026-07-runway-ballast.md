@@ -2,7 +2,7 @@
 Paste into LinkedIn's article editor by hand; headings→Heading 2, bold survives paste. Upload the diagram from linkedin/2026-07-runway-ballast-diagram.png where marked.
 -->
 
-Every company buying AI compute is quietly fighting the same two arguments: "when do we run out?" and "who's hoarding?"
+Nearly every company buying AI compute is quietly fighting the same two arguments: "when do we run out?" and "who's hoarding?"
 
 **TL;DR:** I built two open-source tools to replace those arguments with evidence. Runway answers the first question, Ballast answers the second, and as of this month they talk to each other. Below: what each one does, what's validated on real data, and what's still simulation-only.
 

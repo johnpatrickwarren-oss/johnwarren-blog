@@ -45,11 +45,15 @@
     color:#4A4845; font-size:18px; line-height:1.5;
   }
 
-  .figure { position:absolute; left:560px; top:412px; width:560px; height:140px; }
-  .caption {
-    position:absolute; left:560px; top:560px; width:560px;
-    text-align:center; color:#7A786F; font-style:italic; font-size:15px;
+  .vrule {
+    position:absolute; left:530px; top:424px; width:1px; height:160px;
+    background:#DAD3C6;
   }
+  .figlabel {
+    position:absolute; left:560px; top:430px;
+    color:#7D7A74; font-weight:700; font-size:15px; letter-spacing:2.5px;
+  }
+  .figure { position:absolute; left:560px; top:452px; width:560px; height:140px; }
 
   .footer {
     position:absolute; left:80px; top:596px;
@@ -65,10 +69,12 @@
     <div class="subtitle">An accountability layer for GPU reservations — scored against realized use, validated on a real cluster trace.</div>
     <div class="rule"></div>
 
-    <div class="label">DEMO FLEET, q = 0.1</div>
-    <div class="number">5 / 5</div>
+    <div class="label">DEMO FLEET · q = 0.1</div>
+    <div class="number">5/5 padders</div>
     <div class="subnum">15 orgs — 5 padders, 8 honest, 2 risk-averse —<br>watch list is exactly the 5 padders</div>
 
+    <div class="vrule"></div>
+    <div class="figlabel">COVERAGE MATRIX · N = 200 SEEDS PER SCENARIO</div>
     <svg class="figure" viewBox="0 0 560 140" xmlns="http://www.w3.org/2000/svg">
       <!-- padder_steady: flagged -->
       <rect x="0" y="6" width="560" height="34" rx="17" fill="#8A3324"/>
@@ -82,7 +88,6 @@
       <rect x="20" y="100" width="520" height="34" rx="17" fill="#DAD3C6"/>
       <text x="280" y="122" text-anchor="middle" fill="#4A4845" font-family="Georgia, 'Times New Roman', serif" font-size="16" font-weight="700">risk_averse_high_cu · clear (0.000)</text>
     </svg>
-    <div class="caption">coverage matrix, N = 200 seeds per scenario</div>
 
     <div class="footer">johnpwarren.dev/blog · Jul 20, 2026</div>
   </div>
