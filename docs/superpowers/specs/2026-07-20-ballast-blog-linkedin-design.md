@@ -44,12 +44,19 @@ distilled closing kicker (blog) / question-invitation close (LinkedIn).
    property tests transplanted between repos. Anytime-valid e-processes / e-BH for fleet
    FDR. Archetypes: padder caught (TP=1.0), honest teams not flagged (FP=0), including
    the high-stockout-cost honest team.
-4. **What's real and what isn't** (~300 w). F1 predictive skill (53.2% held-out SSE
-   reduction vs reference-class mean) and F2 interval coverage (0.802 vs nominal 0.80 at
-   ±1.28σ) passed pre-registered on real LBNL traces (439 orgs, 5 GPU-type classes),
-   replicated with verbatim thresholds on Azure Public Dataset V2 (2.7M VMs). F3
-   junk-resistance and F4 incentive efficacy (padding 0.527→0.150, −71.6%, without
-   sandbagging) are simulation-only. Asymmetry stated flatly in body text.
+4. **What's real and what isn't** (~300 w). Open with the published miss: v1's
+   peer-relative flagging FAILED its E1 endpoint on the real Alibaba GPU-cluster trace
+   (cluster-trace-gpu-v2020) — direction right, magnitude far short — and that failure
+   drove the v2 longitudinal redesign. Then v2, pre-registered on the same trace
+   (439 orgs, 5 GPU-type classes): F1 predictive skill (53.2% held-out SSE reduction vs
+   reference-class mean) and F2 interval coverage (0.802 vs nominal 0.80 at ±1.28σ)
+   passed, then replicated with verbatim thresholds and imported endpoint code on the
+   independent Azure Public Dataset V2 (2019 VM trace, ~2.7M VMs, 5,767 orgs; F1 −93.4%
+   with the lifetime-avgcpu fidelity caveat, F2 0.787). F3 junk-resistance and F4
+   incentive efficacy (padding 0.527→0.150, −71.6%, without sandbagging) are
+   simulation-only. Asymmetry stated flatly in body text.
+   *(Correction from earlier draft: the primary trace is Alibaba, not LBNL — LBNL is
+   where Runway's slip-prediction EB endpoints were validated.)*
 5. **Payoff — feeding the planner** (~250 w). Two-stage Ballast→Runway adapter
    (`runway_core.adapters.ballast`, JSONL wire formats, no live coupling): stage 1
    display-only justification packets labeled "synthetic-validated evidence; displayed as
