@@ -2,6 +2,7 @@
 title: 'Show me the math'
 description: 'Centralizing a GPU pool gives you control over who gets capacity, and no visibility into whether anyone asked for the right amount. Ballast is an accountability layer that scores reservations against realized use — validated on a real cluster trace, replicated on a second cloud, and honest about which of its claims are still simulation-only.'
 pubDate: 'Jul 20 2026'
+heroImage: '/og/og_ballast.png'
 ---
 
 Ballast exists because of an escalation. A capacity-allocation dispute went up to senior leadership, and leadership asked the reasonable question: show me the requesting team's math. The team couldn't produce it. Not a wrong model or a stale spreadsheet; there was no math to show.
