@@ -18,17 +18,17 @@ Ballast exists because of an escalation. A capacity dispute reached senior leade
 
 Ballast is the missing record. Think of an insurer's claims history: it compares what each team reserved against what it actually used, cycle after cycle, and judges the gap against a reference class — teams with workloads like yours. The blending is empirical Bayes: your own track record, mixed with the group average so one weird month doesn't define you. The score measures calibration — do your predictions match what actually happens — rather than distance from some utilization cutoff. And a scope line I hold firmly: Ballast scores reservations; it never decides who gets capacity. Allocation stays wherever it lives in your org today.
 
-The peers-like-you framing has teeth. Across 200 simulated runs per scenario, chronic padders were flagged every time, honest teams with spiky demand never, and — the part I like most — cautious teams reserving about 3.3 times what they use were also never flagged. A crude "use it or lose it" utilization audit would punish exactly those careful teams first. Ballast asks a different question: is your behavior explainable among teams like yours? Cautious and consistent passes. Padding doesn't.
+The peers-like-you framing has teeth. Across 200 simulated runs per scenario, chronic padders were flagged every time, honest teams with spiky demand never, and — the part I like most — cautious teams reserving about 3.3 times what they forecast needing were also never flagged. A crude "use it or lose it" utilization audit would punish exactly those careful teams first. Ballast asks a different question: is your behavior explainable among teams like yours? Cautious and consistent passes. Padding doesn't.
 
 Under the hood, each team's history feeds an anytime-valid e-process: a running tally of evidence you can check at any time without the peeking problem, so a slow, steady padder is eventually caught even when no single month looks damning. And the incentive result comes with its caveat in the same breath: in simulation only, with no real organization having run this loop yet, scoring teams this way produced a −71.6% reduction in padding (0.527 to 0.150) while utilization, the share of reserved capacity actually used, rose from 0.753 to 0.850 instead of sandbagging.
 
 ## A forecast is only as good as the asks feeding it
 
-Runway plans against demand as stated. If the stated demand is padded, the plan inherits the padding: the run-out date is wrong, the ranked fixes are wrong, and money moves on the strength of asks nobody vetted. The new integration closes that hole. Ballast hands Runway each team's calibration score, and Runway re-runs the plan as if demand were honest, scaling every team's ask by its measured track record. You get both plans side by side, and the gap between them is the price of padding, in dates and dollars.
+Runway plans against demand as stated. If the stated demand is padded, the plan inherits the padding: the run-out date is wrong, the ranked fixes are wrong, and money moves on the strength of asks nobody vetted. The new integration closes that hole. Ballast hands Runway each team's calibration score, and Runway re-runs the plan as if demand were honest, scaling each scored team's ask by its measured track record. You get both plans side by side, and the gap between them is the price of padding, in dates and dollars.
 
 One design decision worth naming in a single sentence: the cross-team audit view lives on the executive dashboard, with the people who hold the forecast provider accountable, because the forecast provider is also the likeliest padder — while every team still sees its own score, since the incentive only works when the scored party can see the scoreboard.
 
-![When do we run out? → Runway; Who's hoarding? → Ballast](2026-07-runway-ballast-diagram.png)
+![Who's hoarding? → Ballast; When do we run out? → Runway](2026-07-runway-ballast-diagram.png)
 
 *Two questions, two tools, one plan: Runway forecasts the run-out date; Ballast scores whether the asks feeding it are honest.*
 
