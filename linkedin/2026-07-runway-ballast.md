@@ -14,7 +14,7 @@ A disclosure that applies to everything here: I built both tools, so this is a m
 
 ## The hoarding problem
 
-Ballast exists because a capacity escalation reached the CEO, who asked to see the requesting team's math. There was no math to show: not hidden, not stale, never produced. The usual fix for GPU fights is centralizing the pool under one owner. That buys control over who decides. It says nothing about whether anyone asked honestly.
+Ballast exists because a capacity escalation reached the CEO, who asked to see the requesting team's math. There was math, but nothing convincing enough to carry an escalation of that size. The usual fix for GPU fights is centralizing the pool under one owner. That buys control over who decides. It says nothing about whether anyone asked honestly.
 
 Ballast is the missing record. Think of an insurer's claims history: it compares what each team reserved against what it actually used, cycle after cycle, and judges the gap against a reference class — teams with workloads like yours. The blending is empirical Bayes: your own track record, mixed with the group average so one weird month doesn't define you. The score measures calibration — do your predictions match what actually happens — rather than distance from some utilization cutoff. And a scope line I hold firmly: Ballast scores reservations; it never decides who gets capacity. Allocation stays wherever it lives in your org today.
 
