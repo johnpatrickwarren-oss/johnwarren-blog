@@ -2,7 +2,7 @@
 Paste into LinkedIn's article editor by hand; headings→Heading 2, bold survives paste. Upload the diagram from linkedin/2026-07-runway-ballast-diagram.png where marked.
 -->
 
-Nearly every company buying AI compute is quietly fighting the same two arguments: "when do we run out?" and "who's hoarding?"
+Companies buying AI compute keep fighting the same two arguments: "when do we run out?" and "who's hoarding?"
 
 **TL;DR:** I built two open-source tools to replace those arguments with evidence. Runway answers the first question, Ballast answers the second, and as of this month they talk to each other. Below: what each one does, what's validated on real data, and what's still simulation-only.
 
@@ -14,7 +14,7 @@ A disclosure that applies to everything here: I built both tools, so this is a m
 
 ## The hoarding problem
 
-Ballast exists because of an escalation. A capacity dispute reached senior leadership, and leadership asked a fair question: show me the requesting team's math. There was no math. Not hidden, not stale; never produced. Most companies answer GPU fights by centralizing the pool under one owner. That buys control over who decides. It says nothing about whether anyone asked honestly.
+Ballast exists because a capacity escalation reached the CEO, who asked to see the requesting team's math. There was no math to show: not hidden, not stale, never produced. The usual fix for GPU fights is centralizing the pool under one owner. That buys control over who decides. It says nothing about whether anyone asked honestly.
 
 Ballast is the missing record. Think of an insurer's claims history: it compares what each team reserved against what it actually used, cycle after cycle, and judges the gap against a reference class — teams with workloads like yours. The blending is empirical Bayes: your own track record, mixed with the group average so one weird month doesn't define you. The score measures calibration — do your predictions match what actually happens — rather than distance from some utilization cutoff. And a scope line I hold firmly: Ballast scores reservations; it never decides who gets capacity. Allocation stays wherever it lives in your org today.
 
