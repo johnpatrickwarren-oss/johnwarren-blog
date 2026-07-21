@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900">
+  <title>Ballast feeds an honest-demand check into Runway's capacity forecast</title>
+  <defs>
+    <clipPath id="clipLeft">
+      <rect x="60" y="140" width="560" height="620" rx="28"/>
+    </clipPath>
+    <clipPath id="clipRight">
+      <rect x="980" y="140" width="560" height="620" rx="28"/>
+    </clipPath>
+    <marker id="arrowhead" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="9" markerHeight="9" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#0b0b0b"/>
+    </marker>
+  </defs>
+
+  <!-- page background: solid, light, reads fine framed by a dark feed -->
+  <rect x="0" y="0" width="1600" height="900" fill="#f9f9f7"/>
+
+  <!-- LEFT BOX: Ballast -->
+  <rect x="60" y="140" width="560" height="620" rx="28" fill="#ffffff"/>
+  <rect x="60" y="140" width="560" height="16" fill="#008300" clip-path="url(#clipLeft)"/>
+  <rect x="60" y="140" width="560" height="620" rx="28" fill="none" stroke="rgba(11,11,11,0.14)" stroke-width="2"/>
+
+  <text x="340" y="310" text-anchor="middle" font-family="system-ui, -apple-system, 'Segoe UI', sans-serif" font-size="44" font-weight="600" fill="#52514e">Who&#8217;s hoarding?</text>
+  <text x="340" y="450" text-anchor="middle" font-family="system-ui, -apple-system, 'Segoe UI', sans-serif" font-size="108" font-weight="700" fill="#008300">Ballast</text>
+  <line x1="290" y1="510" x2="390" y2="510" stroke="#c3c2b7" stroke-width="3"/>
+  <text x="340" y="572" text-anchor="middle" font-family="system-ui, -apple-system, 'Segoe UI', sans-serif" font-size="32" font-weight="500" fill="#52514e">reservation scorecard</text>
+  <text x="340" y="614" text-anchor="middle" font-family="system-ui, -apple-system, 'Segoe UI', sans-serif" font-size="32" font-weight="500" fill="#52514e">vs realized use</text>
+
+  <!-- RIGHT BOX: Runway -->
+  <rect x="980" y="140" width="560" height="620" rx="28" fill="#ffffff"/>
+  <rect x="980" y="140" width="560" height="16" fill="#2a78d6" clip-path="url(#clipRight)"/>
+  <rect x="980" y="140" width="560" height="620" rx="28" fill="none" stroke="rgba(11,11,11,0.14)" stroke-width="2"/>
+
+  <text x="1260" y="310" text-anchor="middle" font-family="system-ui, -apple-system, 'Segoe UI', sans-serif" font-size="44" font-weight="600" fill="#52514e">When do we run out?</text>
+  <text x="1260" y="450" text-anchor="middle" font-family="system-ui, -apple-system, 'Segoe UI', sans-serif" font-size="108" font-weight="700" fill="#2a78d6">Runway</text>
+  <line x1="1210" y1="510" x2="1310" y2="510" stroke="#c3c2b7" stroke-width="3"/>
+  <text x="1260" y="572" text-anchor="middle" font-family="system-ui, -apple-system, 'Segoe UI', sans-serif" font-size="32" font-weight="500" fill="#52514e">capacity forecast</text>
+  <text x="1260" y="614" text-anchor="middle" font-family="system-ui, -apple-system, 'Segoe UI', sans-serif" font-size="32" font-weight="500" fill="#52514e">with honest error bars</text>
+
+  <!-- ARROW: Ballast -> Runway, left to right, matching reading direction -->
+  <line x1="655" y1="470" x2="945" y2="470" stroke="#0b0b0b" stroke-width="5" marker-end="url(#arrowhead)"/>
+
+  <!-- arrow label, pill background for legibility over the line -->
+  <rect x="655" y="368" width="290" height="86" rx="20" fill="#fcfcfb" stroke="rgba(11,11,11,0.14)" stroke-width="2"/>
+  <text x="800" y="408" text-anchor="middle" font-family="system-ui, -apple-system, 'Segoe UI', sans-serif" font-size="32" font-weight="700" fill="#0b0b0b">honest-demand</text>
+  <text x="800" y="444" text-anchor="middle" font-family="system-ui, -apple-system, 'Segoe UI', sans-serif" font-size="32" font-weight="700" fill="#0b0b0b">check</text>
+</svg>
