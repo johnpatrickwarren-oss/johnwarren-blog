@@ -24,7 +24,7 @@ The output is not a correction factor for the upcoming quarter. It's a map of fo
 
 Runway is the planning side: a vendor-neutral, open-source tool that forecasts your capacity runway (the date demand crosses what you've deployed) with a band showing the range the data actually supports, and ranks which intervention extends that date cheapest. Feed it Ballast's scores and it shows the plan as stated next to the plan the track records support; the gap between them is the cost of the mismatch, in dates and dollars. The cross-team calibration view lives on the executive dashboard, with the people who review the forecasts, because the forecast provider's own asks are the thing being scored — while every team still sees its own score, since the feedback loop only works when the scored party can see the scoreboard.
 
-![Who's hoarding? → Ballast; When do we run out? → Runway](2026-07-runway-ballast-diagram.png)
+![Are the asks sized to reality? → Ballast; When do we run out? → Runway](2026-07-runway-ballast-diagram.png)
 
 *Two questions, two tools, one plan: Runway forecasts the run-out date; Ballast scores whether the asks feeding it match realized use.*
 
