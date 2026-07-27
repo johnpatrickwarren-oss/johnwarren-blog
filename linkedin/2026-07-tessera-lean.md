@@ -8,9 +8,9 @@ same style as the runway/ballast diagram.)
 
 ---
 
-We ran 995,245 numerical checks on our statistical guarantee. All passed. Then a theorem prover read the fine print and found five of our formal statements were wrong.
+A GPU-fleet monitor pages a human on statistical evidence. Ours now carries a machine-checked bound on how often that page is false.
 
-TL;DR: We machine-checked the false-discovery guarantee behind Tessera (our GPU-fleet fault detector) in the Lean theorem prover, end to end. No new math came out. What came out: five wrong formal statements that heavy simulation had validated as fine, and a sharper understanding of what our guarantee actually says. Full write-up: [link].
+TL;DR: We proved the false-discovery-rate guarantee behind Tessera (our GPU-fleet fault detector) in the Lean theorem prover, end to end — from the randomized probe design to the alarm bound. No new math came out. What came out: five wrong formal statements that 995,245 passing simulations had validated as fine, and a sharper statement of what a fleet's alarm budget can actually promise. Full write-up: [link].
 
 The chain we proved runs from experiment design to error control: randomized probe placement gives exchangeability (any ordering of healthy peers is equally likely), which makes each unit's rank among its peers exactly uniform, which a calibration step turns into an e-value (a score that averages at most 1 when nothing is wrong), which the e-BH procedure turns into a false-discovery-rate bound that holds under arbitrary dependence. Every theorem in that chain was already known. As far as I could find, none had ever been machine-checked, in any proof assistant.
 

@@ -1,11 +1,11 @@
 ---
-title: 'Tessera: the proofs found five bugs the simulations passed'
-description: 'We machine-checked the statistical guarantee chain behind Tessera in Lean. No new mathematics came out. Five wrong formal statements did.'
+title: 'Tessera: a machine-checked false-alarm guarantee for GPU fleets'
+description: 'Fleet monitors page people on statistical evidence. Tessera''s false-discovery-rate guarantee is now proved end to end in Lean — and the proofs found five wrong statements that 995,245 passing simulations missed.'
 pubDate: 'Jul 27 2026'
 heroImage: '/og/og_tessera_lean.png'
 ---
 
-The [previous Tessera post](/blog/tessera/) ended on e-BH, the false-discovery-rate procedure that keeps a thousand concurrent shard verdicts from drowning an operator in false alarms. This post is about what happened when we machine-checked that machinery in a theorem prover: the whole chain, from the randomized experiment design at the bottom to the FDR bound at the top.
+A thousand-shard GPU cluster produces a thousand concurrent health verdicts every tick, and every verdict can page a human. Most monitoring stacks manage the resulting false alarms with tuned thresholds; Tessera's design goal has been a *defined* false-alarm budget — a false-discovery-rate bound that holds across all verdicts at once, which is where the [previous post](/blog/tessera/) ended. This post is about what happened when we machine-checked that guarantee in a theorem prover: the whole chain, from the randomized experiment design at the bottom to the FDR bound at the top.
 
 The result was not new mathematics. Every theorem in the chain was already known. What the prover produced instead was an audit finding: five of our formal statements of that known mathematics were wrong, and the numerical validation we ran on each of them had passed every one.
 
