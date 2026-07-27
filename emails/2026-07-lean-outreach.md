@@ -14,7 +14,7 @@ Prof. Ramdas,
 I wrote to you earlier this year about Tessera, a GPU-fleet fault detector built on
 e-values and e-BH. Following up with two results.
 
-First: we machine-checked e-BH in Lean 4 with Mathlib, including FDR control under
+First: I machine-checked e-BH in Lean 4 with Mathlib, including FDR control under
 arbitrary dependence, as the final link of a fully formalized chain that starts at the
 experiment design: randomized placement, exchangeability, exact conformal rank
 uniformity (tie-robust, no continuity assumption), calibration to e-values, then your
@@ -29,17 +29,17 @@ the guarantee degrades in deployment, both with the per-round construction exact
 persistent unit heterogeneity, accumulated per-unit e-processes drift; the inflation
 E[M_T] = E[g^T] is now a machine-checked theorem in the same repository, and the
 operational failure is first-passage (paging rate), which the mean bound badly
-mispredicts. Separately, under persistent noise-scale heterogeneity we measured e-BH
+mispredicts. Separately, under persistent noise-scale heterogeneity I measured e-BH
 itself producing false selections from all-healthy fleets: a persistently noisy unit
 concentrates its inflation and crosses the selection threshold alone, and because the
 scale factor is shared within racks, false selections grew superlinearly with fleet
-size in our experiments (0, then 3, then 26.5 per run as N doubled twice). The
+size in my experiments (0, then 3, then 26.5 per run as N doubled twice). The
 dependence-robustness theorem is intact; the inputs stop being e-values in a correlated
 way. All of this is on a simulation substrate, stated as such in the reports
 (research/ in the same repo).
 
 A side effect: proving the chain exposed five defects in
-our own formal statements that 995,245 numerical checks had passed, including an
+my own formal statements that 995,245 numerical checks had passed, including an
 independence hypothesis whose absence has a clean adversarial-coupling counterexample.
 
 No reply expected. If any of it is useful to you or a student, it's public.
