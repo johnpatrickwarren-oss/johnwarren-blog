@@ -1,7 +1,7 @@
 # Outreach drafts — Lean formalization (2026-07)
 
 Two emails. Ramdas gets the statistics; Degenne gets the formalization. Both link the
-public repo (verified public). Send after the blog post is live so [blog] resolves.
+public repo (verified public). Send after the blog post is live (URLs filled 2026-07-27, post live).
 
 ---
 
@@ -74,7 +74,7 @@ tie-robust rank uniformity proof, whose deterministic core is a clean Finset arg
 Proving also exposed five defects in formal statements that extensive numerical validation had
 passed, each a known transcription trap (junk-value tsum hypotheses, ambient
 measurability, quantifier domains, `True`-typed placeholder hypotheses, placeholder
-definitions that hollow out downstream theorems). Write-up: [blog].
+definitions that hollow out downstream theorems). Write-up: https://johnpwarren.dev/blog/tessera-lean/
 
 Happy to open Mathlib PRs for either piece if they look wanted.
 

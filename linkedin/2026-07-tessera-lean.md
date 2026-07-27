@@ -10,7 +10,7 @@ same style as the runway/ballast diagram.)
 
 A GPU-fleet monitor pages a human on statistical evidence. Ours now carries a machine-checked bound on how often that page is false.
 
-TL;DR: We proved the false-discovery-rate guarantee behind Tessera (our GPU-fleet fault detector) in the Lean theorem prover, end to end — from the randomized probe design to the alarm bound. No new math came out. What came out: five wrong formal statements that 995,245 passing simulations had validated as fine, and a sharper statement of what a fleet's alarm budget can actually promise. Full write-up: [link].
+TL;DR: We proved the false-discovery-rate guarantee behind Tessera (our GPU-fleet fault detector) in the Lean theorem prover, end to end — from the randomized probe design to the alarm bound. No new math came out. What came out: five wrong formal statements that 995,245 passing simulations had validated as fine, and a sharper statement of what a fleet's alarm budget can actually promise. Full write-up: https://johnpwarren.dev/blog/tessera-lean/.
 
 The chain we proved runs from experiment design to error control: randomized probe placement gives exchangeability (any ordering of healthy peers is equally likely), which makes each unit's rank among its peers exactly uniform, which a calibration step turns into an e-value (a score that averages at most 1 when nothing is wrong), which the e-BH procedure turns into a false-discovery-rate bound that holds under arbitrary dependence. Every theorem in that chain was already known. As far as I could find, none had ever been machine-checked, in any proof assistant.
 
@@ -26,4 +26,4 @@ Tessera is my system, so I am grading my own homework here. The original formal 
 
 If you maintain a system whose value rests on a mathematical claim, here's the question it left me with, for anyone who has faced it: your tests check what your code does — what checks what your claim says?
 
-Full write-up: [link]
+Full write-up: https://johnpwarren.dev/blog/tessera-lean/
