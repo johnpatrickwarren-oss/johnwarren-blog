@@ -7,7 +7,7 @@ fleet-size cascade annotation.
 
 ---
 
-On a 72,000-GPU training cluster, the failure that costs the most is the one that never pages: a GPU computing wrong answers while every health check reads green.
+On a 72,000-GPU training cluster, a GPU can compute wrong answers for weeks while every health check reads green.
 
 TL;DR: Silent data corruption raises no hardware alarm, and hand-tuned dashboard thresholds can't track what "healthy" looks like across a changing fleet. Tessera is our statistical monitoring tier with a defined false-alarm budget. Testing it against the most realistic simulated cluster we could build showed that a guarantee holding everywhere is unrealistic. So we measured where the edges are and built the system to know when it crosses them. Full write-up: https://johnpwarren.dev/blog/tessera-lean/
 
@@ -23,9 +23,9 @@ The noise channel. Units that are persistently noisier at the same average defea
 
 Scale. Doubling the simulated fleet twice moved false cordons from 0 to 3 to 26.5 per run, because the noise factor is shared within racks. Superlinear. At 72,000 GPUs, "we're far from the selection threshold" is not an argument.
 
-Where it landed. The bound holds while two fleet-heterogeneity numbers stay in budget: persistent per-unit quirk share under about 4%, and noise-scale spread under about 0.15 (the measured breach brackets sit at 6.3–8.4% and 0.15–0.31). Both numbers are metered on live data by their own estimators, and the moment the fleet leaves budget the code revokes the FDR-bearing status of its outputs — the guarantee has a breaker, not a footnote. Per-round decisions keep a separate design-based guarantee at randomized-trial grade, because the scheduler physically performs the randomization. And the mathematics from the conditions to the conclusion is machine-checked in the Lean theorem prover; the proofs caught five wrong formal statements that 995,245 passing simulations had validated, which is its own story: https://johnpwarren.dev/blog/tessera-lean/
+Where it landed. The bound holds while two fleet-heterogeneity numbers stay in budget: persistent per-unit quirk share under about 4%, and noise-scale spread under about 0.15 (the measured breach brackets sit at 6.3–8.4% and 0.15–0.31). Both numbers are metered on live data by their own estimators, and the moment the fleet leaves budget the code revokes the FDR-bearing status of its outputs. Per-round decisions keep a separate design-based guarantee at randomized-trial grade, because the scheduler physically performs the randomization. And the mathematics from the conditions to the conclusion is machine-checked in the Lean theorem prover; the proofs caught five wrong formal statements that 995,245 passing simulations had validated, which is its own story: https://johnpwarren.dev/blog/tessera-lean/
 
-A hand-tuned threshold cannot be patched into this. It has no error-rate semantics: it says "this level," never "at most this fraction of pages is wrong." It has no breaker: when the fleet drifts past whatever it was tuned on, it keeps firing, or keeps silent, with unchanged confidence. And the failure modes above are invisible to tuning: every per-signal marginal stayed clean while the evidence compounded across weeks. There is no level to set when every level looks right.
+A hand-tuned threshold cannot be patched into this. It has no error-rate semantics: it says "this level," never "at most this fraction of pages is wrong." It has no breaker: when the fleet drifts past whatever it was tuned on, it keeps firing, or keeps silent, with unchanged confidence. And the failure modes above are invisible to tuning: every per-signal marginal stayed clean while the evidence compounded across weeks, so there was no signal on which a threshold could have been set.
 
 Tessera is my system, so I am grading my own homework. Every fleet number here is from simulation — as realistic as we could make it, not a production fleet — and the superlinear cascade is measured only to about 4,000 units; where it sets in at 10,000-plus is the current top open item.
 
