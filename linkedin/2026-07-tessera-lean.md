@@ -14,7 +14,7 @@ TL;DR: We machine-checked the false-discovery guarantee behind Tessera (our GPU-
 
 The chain we proved runs from experiment design to error control: randomized probe placement gives exchangeability (any ordering of healthy peers is equally likely), which makes each unit's rank among its peers exactly uniform, which a calibration step turns into an e-value (a score that averages at most 1 when nothing is wrong), which the e-BH procedure turns into a false-discovery-rate bound that holds under arbitrary dependence. Every theorem in that chain was already known. As far as I could find, none had ever been machine-checked, in any proof assistant.
 
-The interesting part is why the five bugs survived our validation.
+Why did five wrong statements survive a million checks?
 
 One example. A mixture theorem needed its weights to be summable. On paper you'd never state that; a divergent sum is undefined, so "weights sum to at most 1" excludes it silently. In Lean's math library, an infinite sum is a total function that returns 0 when the series diverges. Under that convention, weights of all 1s "sum" to zero, satisfy the hypothesis, and admit a fake e-value with average 2. Our real weights were geometric and safe, so every one of our simulations drew from the safe case. The gap was invisible by construction.
 
@@ -22,8 +22,8 @@ Another: a statement about our randomized tiebreaker required only that it be un
 
 The pattern behind all five: simulation checks your intent, because it runs the objects you actually built. Proving checks your text, because it reads the statement you actually wrote. The guarantee you publish is the text.
 
-Where honesty is owed: Tessera is my system, so I am grading my own homework here. The original formal statements were written by AI transcribing our research notes, and the proofs that caught them were AI-assisted too — the same kind of agent wrote the bugs and found them. The fleet-scale numbers behind the system come from a simulation substrate, not production hardware. And the prover didn't only bless us: it also machine-checked a limitation, proving that our per-round validity does not survive naive accumulation across rounds. The end state is a conditional guarantee with every condition named, measured by a runtime monitor, and revoked in code when measurements leave budget.
+Tessera is my system, so I am grading my own homework here. The original formal statements were written by AI transcribing our research notes, and the proofs that caught them were AI-assisted too — the same kind of agent wrote the bugs and found them. The fleet-scale numbers behind the system come from a simulation substrate, not production hardware. The prover also machine-checked a limitation: our per-round validity does not survive naive accumulation across rounds. The end state is a conditional guarantee with every condition named, measured by a runtime monitor, and revoked in code when measurements leave budget.
 
-If you maintain a system whose value rests on a mathematical claim, here's the question this left me with, and I'd genuinely like answers from people who've faced it: your tests check what your code does — what checks what your claim says?
+If you maintain a system whose value rests on a mathematical claim, here's the question it left me with, for anyone who has faced it: your tests check what your code does — what checks what your claim says?
 
 Full write-up: [link]
