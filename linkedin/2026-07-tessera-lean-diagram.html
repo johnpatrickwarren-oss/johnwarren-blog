@@ -13,36 +13,15 @@
   }
   .topbar { position:absolute; top:0; left:0; width:1200px; height:8px; background:#3D5B3F; }
   .title {
-    position:absolute; left:0; top:44px; width:1200px; text-align:center;
+    position:absolute; left:0; top:38px; width:1200px; text-align:center;
     color:#1C1A17; font-size:38px; font-weight:700;
   }
   .subtitle {
-    position:absolute; left:0; top:100px; width:1200px; text-align:center;
-    color:#4A4845; font-style:italic; font-size:20px;
+    position:absolute; left:0; top:94px; width:1200px; text-align:center;
+    color:#4A4845; font-style:italic; font-size:19px;
   }
-  .panel {
-    position:absolute; top:160px; width:520px; height:430px;
-    background:#FBF8F1; border:1px solid #DAD3C6; border-radius:10px;
-  }
-  .panel.left  { left:60px; }
-  .panel.right { left:620px; }
-  .panel-label {
-    position:absolute; top:26px; width:100%; text-align:center;
-    color:#7D7A74; font-weight:700; font-size:15px; letter-spacing:2.5px;
-  }
-  .panel-stat {
-    position:absolute; bottom:28px; width:100%; text-align:center;
-    font-size:22px; font-weight:700;
-  }
-  .panel.left  .panel-stat { color:#3D5B3F; }
-  .panel.right .panel-stat { color:#8A3324; }
-  .panel-substat {
-    position:absolute; bottom:0px; width:100%; text-align:center;
-    color:#7A786F; font-style:italic; font-size:14px; padding-bottom:8px;
-  }
-  .fig { position:absolute; top:70px; left:20px; }
   .footer {
-    position:absolute; left:0; top:632px; width:1200px; text-align:center;
+    position:absolute; left:0; top:636px; width:1200px; text-align:center;
     color:#908D84; font-size:15px;
   }
 </style>
@@ -50,98 +29,91 @@
 <body>
   <div class="card">
     <div class="topbar"></div>
-    <div class="title">Simulation checks your intent. Proving checks your text.</div>
-    <div class="subtitle">The same guarantee chain, seen by two different tools.</div>
+    <div class="title">Where the alarm budget holds</div>
+    <div class="subtitle">Two ways a healthy fleet differs from itself — and the measured edges of the FDR guarantee (simulation)</div>
 
-    <div class="panel left">
-      <div class="panel-label">WHAT SIMULATION RUNS</div>
-      <svg class="fig" width="480" height="270" viewBox="0 0 480 270" xmlns="http://www.w3.org/2000/svg">
-        <!-- the implementation: chain of five, all green -->
-        <g stroke="#3D5B3F" stroke-width="2.5" fill="none">
-          <line x1="62" y1="135" x2="138" y2="135"/>
-          <line x1="166" y1="135" x2="242" y2="135"/>
-          <line x1="270" y1="135" x2="346" y2="135"/>
-          <line x1="374" y1="135" x2="424" y2="135"/>
-        </g>
-        <g fill="#3D5B3F">
-          <circle cx="48"  cy="135" r="13"/>
-          <circle cx="152" cy="135" r="13"/>
-          <circle cx="256" cy="135" r="13"/>
-          <circle cx="360" cy="135" r="13"/>
-          <circle cx="438" cy="135" r="13"/>
-        </g>
-        <g fill="#F3EFE6" font-family="Georgia, serif" font-size="15" font-weight="bold" text-anchor="middle">
-          <text x="48"  y="140">✓</text>
-          <text x="152" y="140">✓</text>
-          <text x="256" y="140">✓</text>
-          <text x="360" y="140">✓</text>
-          <text x="438" y="140">✓</text>
-        </g>
-        <g fill="#4A4845" font-family="Georgia, serif" font-size="14" text-anchor="middle">
-          <text x="48"  y="175">random</text>
-          <text x="152" y="175">rank</text>
-          <text x="256" y="175">e-value</text>
-          <text x="360" y="175">e-BH</text>
-          <text x="438" y="175">FDR≤q</text>
-        </g>
-        <text x="240" y="222" fill="#7A786F" font-family="Georgia, serif" font-size="14" font-style="italic" text-anchor="middle">the objects you built — summable, measurable, independent</text>
-      </svg>
-      <div class="panel-stat">995,245 runs · 0 violations</div>
-      <div class="panel-substat">the implementation is fine</div>
-    </div>
+    <svg width="1200" height="490" viewBox="0 0 1200 490" style="position:absolute; top:140px; left:0;" xmlns="http://www.w3.org/2000/svg">
+      <!-- plot area: x 140..1040 maps ICC 0..16% ; y 420..80 maps sigma 0..0.7 -->
 
-    <div class="panel right">
-      <div class="panel-label">WHAT THE PROVER READS</div>
-      <svg class="fig" width="480" height="270" viewBox="0 0 480 270" xmlns="http://www.w3.org/2000/svg">
-        <!-- the statement layer above a faint chain -->
-        <g stroke="#CBC5B8" stroke-width="2.5" fill="none">
-          <line x1="62" y1="190" x2="138" y2="190"/>
-          <line x1="166" y1="190" x2="242" y2="190"/>
-          <line x1="270" y1="190" x2="346" y2="190"/>
-          <line x1="374" y1="190" x2="424" y2="190"/>
-        </g>
-        <g fill="#BDB9B1">
-          <circle cx="48"  cy="190" r="13"/>
-          <circle cx="152" cy="190" r="13"/>
-          <circle cx="256" cy="190" r="13"/>
-          <circle cx="360" cy="190" r="13"/>
-          <circle cx="438" cy="190" r="13"/>
-        </g>
-        <!-- five statement tags, red-crossed -->
-        <g font-family="Georgia, serif">
-          <g transform="translate(6,44)">
-            <rect width="146" height="32" rx="5" fill="none" stroke="#8A3324" stroke-width="2"/>
-            <text x="11" y="22" fill="#8A3324" font-size="16" font-weight="bold">✗</text>
-            <text x="30" y="21" fill="#4A4845" font-size="12" font-style="italic">missing summability</text>
-          </g>
-          <g transform="translate(162,44)">
-            <rect width="158" height="32" rx="5" fill="none" stroke="#8A3324" stroke-width="2"/>
-            <text x="11" y="22" fill="#8A3324" font-size="16" font-weight="bold">✗</text>
-            <text x="30" y="21" fill="#4A4845" font-size="12" font-style="italic">missing measurability</text>
-          </g>
-          <g transform="translate(330,44)">
-            <rect width="146" height="32" rx="5" fill="none" stroke="#8A3324" stroke-width="2"/>
-            <text x="11" y="22" fill="#8A3324" font-size="16" font-weight="bold">✗</text>
-            <text x="30" y="21" fill="#4A4845" font-size="12" font-style="italic">quantifier too wide</text>
-          </g>
-          <g transform="translate(74,92)">
-            <rect width="152" height="32" rx="5" fill="none" stroke="#8A3324" stroke-width="2"/>
-            <text x="11" y="22" fill="#8A3324" font-size="16" font-weight="bold">✗</text>
-            <text x="30" y="21" fill="#4A4845" font-size="12" font-style="italic">missing independence</text>
-          </g>
-          <g transform="translate(242,92)">
-            <rect width="164" height="32" rx="5" fill="none" stroke="#8A3324" stroke-width="2"/>
-            <text x="11" y="22" fill="#8A3324" font-size="16" font-weight="bold">✗</text>
-            <text x="30" y="21" fill="#4A4845" font-size="12" font-style="italic">placeholder definition</text>
-          </g>
-        </g>
-        <text x="240" y="248" fill="#7A786F" font-family="Georgia, serif" font-size="14" font-style="italic" text-anchor="middle">the statements you wrote — quantifiers, hypotheses, placeholders</text>
-      </svg>
-      <div class="panel-stat">5 statements wrong</div>
-      <div class="panel-substat">every one passed the checks on the left</div>
-    </div>
+      <!-- gridlines -->
+      <g stroke="#E3DDD0" stroke-width="1">
+        <line x1="365" y1="80" x2="365" y2="420"/>
+        <line x1="590" y1="80" x2="590" y2="420"/>
+        <line x1="815" y1="80" x2="815" y2="420"/>
+        <line x1="140" y1="323" x2="1040" y2="323"/>
+        <line x1="140" y1="226" x2="1040" y2="226"/>
+        <line x1="140" y1="129" x2="1040" y2="129"/>
+      </g>
 
-    <div class="footer">Tessera · machine-checked in Lean 4 + Mathlib · johnpwarren.dev</div>
+      <!-- ICC breach band: 6.32..8.36% -> x 495..610, full height -->
+      <rect x="495" y="80" width="115" height="340" fill="#8A3324" opacity="0.13"/>
+      <line x1="495" y1="80" x2="495" y2="420" stroke="#8A3324" stroke-width="1.5" stroke-dasharray="5 4" opacity="0.7"/>
+      <line x1="610" y1="80" x2="610" y2="420" stroke="#8A3324" stroke-width="1.5" stroke-dasharray="5 4" opacity="0.7"/>
+
+      <!-- sigma breach band: 0.15..0.31 -> y 347..269 -->
+      <rect x="140" y="269" width="900" height="78" fill="#8A3324" opacity="0.13"/>
+      <line x1="140" y1="347" x2="1040" y2="347" stroke="#8A3324" stroke-width="1.5" stroke-dasharray="5 4" opacity="0.7"/>
+      <line x1="140" y1="269" x2="1040" y2="269" stroke="#8A3324" stroke-width="1.5" stroke-dasharray="5 4" opacity="0.7"/>
+
+      <!-- gate region: ICC 0..4% (x 140..365), sigma 0..0.15 (y 347..420) -->
+      <rect x="140" y="347" width="225" height="73" fill="#3D5B3F" opacity="0.18"/>
+      <rect x="140" y="347" width="225" height="73" fill="none" stroke="#3D5B3F" stroke-width="2.5"/>
+
+      <!-- axes -->
+      <g stroke="#7D7A74" stroke-width="1.5">
+        <line x1="140" y1="420" x2="1040" y2="420"/>
+        <line x1="140" y1="80" x2="140" y2="420"/>
+      </g>
+
+      <!-- x ticks/labels -->
+      <g fill="#7A786F" font-family="Georgia, serif" font-size="14" text-anchor="middle">
+        <text x="140" y="443">0%</text>
+        <text x="365" y="443">4%</text>
+        <text x="590" y="443">8%</text>
+        <text x="815" y="443">12%</text>
+        <text x="1040" y="443">16%</text>
+      </g>
+      <text x="590" y="474" fill="#4A4845" font-family="Georgia, serif" font-size="16" text-anchor="middle">persistent per-unit quirk share (ICC) — how much of behavior is a unit's permanent personality</text>
+
+      <!-- y ticks/labels -->
+      <g fill="#7A786F" font-family="Georgia, serif" font-size="14" text-anchor="end">
+        <text x="130" y="425">0</text>
+        <text x="130" y="328">0.2</text>
+        <text x="130" y="231">0.4</text>
+        <text x="130" y="134">0.6</text>
+      </g>
+      <text x="52" y="250" fill="#4A4845" font-family="Georgia, serif" font-size="16" text-anchor="middle" transform="rotate(-90 52 250)">noise-scale spread (ς) — how much units differ in how noisy they are</text>
+
+      <!-- gate label -->
+      <text x="152" y="372" fill="#3D5B3F" font-family="Georgia, serif" font-size="16" font-weight="bold">guarantee holds</text>
+      <text x="152" y="392" fill="#3D5B3F" font-family="Georgia, serif" font-size="13" font-style="italic">ICC ≤ ~4% and ς ≤ ~0.15</text>
+      <text x="152" y="409" fill="#3D5B3F" font-family="Georgia, serif" font-size="13" font-style="italic">metered live · revoked in code if left</text>
+
+      <!-- ICC breach label -->
+      <rect x="462" y="88" width="180" height="62" rx="5" fill="#F3EFE6" opacity="0.92"/>
+      <text x="552" y="106" fill="#8A3324" font-family="Georgia, serif" font-size="15" font-weight="bold" text-anchor="middle">breach: 6.3–8.4%</text>
+      <text x="552" y="125" fill="#4A4845" font-family="Georgia, serif" font-size="13" font-style="italic" text-anchor="middle">healthy fleet pages 3.3× its</text>
+      <text x="552" y="142" fill="#4A4845" font-family="Georgia, serif" font-size="13" font-style="italic" text-anchor="middle">budget by round 320</text>
+
+      <!-- sigma breach label -->
+      <text x="1032" y="292" fill="#8A3324" font-family="Georgia, serif" font-size="15" font-weight="bold" text-anchor="end">breach: ς 0.15–0.31</text>
+      <text x="1032" y="311" fill="#4A4845" font-family="Georgia, serif" font-size="13" font-style="italic" text-anchor="end">the noise channel the location gate can't see</text>
+
+      <!-- e-BH failure point at (ICC~0, sigma 0.61): y = 420 - 0.61/0.7*340 = 124 -->
+      <circle cx="168" cy="124" r="9" fill="#8A3324"/>
+      <circle cx="168" cy="124" r="9" fill="none" stroke="#F3EFE6" stroke-width="2"/>
+      <text x="186" y="120" fill="#8A3324" font-family="Georgia, serif" font-size="15" font-weight="bold">ς = 0.61: selection itself fails</text>
+      <text x="186" y="139" fill="#4A4845" font-family="Georgia, serif" font-size="13" font-style="italic">14.8 false cordons/run from an all-healthy fleet</text>
+
+      <!-- cascade annotation -->
+      <g transform="translate(680,352)">
+        <rect x="0" y="0" width="352" height="60" rx="6" fill="#FBF8F1" stroke="#DAD3C6"/>
+        <text x="14" y="24" fill="#1C1A17" font-family="Georgia, serif" font-size="14" font-weight="bold">scale amplifies the breach:</text>
+        <text x="14" y="45" fill="#4A4845" font-family="Georgia, serif" font-size="14">0 → 3 → 26.5 false cordons/run as the fleet doubled</text>
+      </g>
+    </svg>
+
+    <div class="footer">Tessera · edges measured on clustersynth (60-day streams, to 100k simulated GPUs) · johnpwarren.dev</div>
   </div>
 </body>
 </html>
