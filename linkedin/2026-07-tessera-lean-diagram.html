@@ -1,0 +1,147 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<style>
+  * { margin:0; padding:0; box-sizing:border-box; }
+  html,body { width:1200px; height:675px; }
+  .card {
+    position:relative; width:1200px; height:675px;
+    background:#F3EFE6; overflow:hidden;
+    font-family: Georgia, 'Times New Roman', serif;
+    -webkit-font-smoothing: antialiased;
+  }
+  .topbar { position:absolute; top:0; left:0; width:1200px; height:8px; background:#3D5B3F; }
+  .title {
+    position:absolute; left:0; top:44px; width:1200px; text-align:center;
+    color:#1C1A17; font-size:38px; font-weight:700;
+  }
+  .subtitle {
+    position:absolute; left:0; top:100px; width:1200px; text-align:center;
+    color:#4A4845; font-style:italic; font-size:20px;
+  }
+  .panel {
+    position:absolute; top:160px; width:520px; height:430px;
+    background:#FBF8F1; border:1px solid #DAD3C6; border-radius:10px;
+  }
+  .panel.left  { left:60px; }
+  .panel.right { left:620px; }
+  .panel-label {
+    position:absolute; top:26px; width:100%; text-align:center;
+    color:#7D7A74; font-weight:700; font-size:15px; letter-spacing:2.5px;
+  }
+  .panel-stat {
+    position:absolute; bottom:28px; width:100%; text-align:center;
+    font-size:22px; font-weight:700;
+  }
+  .panel.left  .panel-stat { color:#3D5B3F; }
+  .panel.right .panel-stat { color:#8A3324; }
+  .panel-substat {
+    position:absolute; bottom:0px; width:100%; text-align:center;
+    color:#7A786F; font-style:italic; font-size:14px; padding-bottom:8px;
+  }
+  .fig { position:absolute; top:70px; left:20px; }
+  .footer {
+    position:absolute; left:0; top:632px; width:1200px; text-align:center;
+    color:#908D84; font-size:15px;
+  }
+</style>
+</head>
+<body>
+  <div class="card">
+    <div class="topbar"></div>
+    <div class="title">Simulation checks your intent. Proving checks your text.</div>
+    <div class="subtitle">The same guarantee chain, seen by two different tools.</div>
+
+    <div class="panel left">
+      <div class="panel-label">WHAT SIMULATION RUNS</div>
+      <svg class="fig" width="480" height="270" viewBox="0 0 480 270" xmlns="http://www.w3.org/2000/svg">
+        <!-- the implementation: chain of five, all green -->
+        <g stroke="#3D5B3F" stroke-width="2.5" fill="none">
+          <line x1="62" y1="135" x2="138" y2="135"/>
+          <line x1="166" y1="135" x2="242" y2="135"/>
+          <line x1="270" y1="135" x2="346" y2="135"/>
+          <line x1="374" y1="135" x2="424" y2="135"/>
+        </g>
+        <g fill="#3D5B3F">
+          <circle cx="48"  cy="135" r="13"/>
+          <circle cx="152" cy="135" r="13"/>
+          <circle cx="256" cy="135" r="13"/>
+          <circle cx="360" cy="135" r="13"/>
+          <circle cx="438" cy="135" r="13"/>
+        </g>
+        <g fill="#F3EFE6" font-family="Georgia, serif" font-size="15" font-weight="bold" text-anchor="middle">
+          <text x="48"  y="140">✓</text>
+          <text x="152" y="140">✓</text>
+          <text x="256" y="140">✓</text>
+          <text x="360" y="140">✓</text>
+          <text x="438" y="140">✓</text>
+        </g>
+        <g fill="#4A4845" font-family="Georgia, serif" font-size="14" text-anchor="middle">
+          <text x="48"  y="175">random</text>
+          <text x="152" y="175">rank</text>
+          <text x="256" y="175">e-value</text>
+          <text x="360" y="175">e-BH</text>
+          <text x="438" y="175">FDR≤q</text>
+        </g>
+        <text x="240" y="222" fill="#7A786F" font-family="Georgia, serif" font-size="14" font-style="italic" text-anchor="middle">the objects you built — summable, measurable, independent</text>
+      </svg>
+      <div class="panel-stat">995,245 runs · 0 violations</div>
+      <div class="panel-substat">the implementation is fine</div>
+    </div>
+
+    <div class="panel right">
+      <div class="panel-label">WHAT THE PROVER READS</div>
+      <svg class="fig" width="480" height="270" viewBox="0 0 480 270" xmlns="http://www.w3.org/2000/svg">
+        <!-- the statement layer above a faint chain -->
+        <g stroke="#CBC5B8" stroke-width="2.5" fill="none">
+          <line x1="62" y1="190" x2="138" y2="190"/>
+          <line x1="166" y1="190" x2="242" y2="190"/>
+          <line x1="270" y1="190" x2="346" y2="190"/>
+          <line x1="374" y1="190" x2="424" y2="190"/>
+        </g>
+        <g fill="#BDB9B1">
+          <circle cx="48"  cy="190" r="13"/>
+          <circle cx="152" cy="190" r="13"/>
+          <circle cx="256" cy="190" r="13"/>
+          <circle cx="360" cy="190" r="13"/>
+          <circle cx="438" cy="190" r="13"/>
+        </g>
+        <!-- five statement tags, red-crossed -->
+        <g font-family="Georgia, serif">
+          <g transform="translate(8,40)">
+            <rect width="88" height="34" rx="5" fill="none" stroke="#8A3324" stroke-width="2"/>
+            <text x="12" y="23" fill="#8A3324" font-size="17" font-weight="bold">✗</text>
+            <text x="32" y="23" fill="#4A4845" font-size="14" font-style="italic">∑' w ≤ 1</text>
+          </g>
+          <g transform="translate(104,84)">
+            <rect width="100" height="34" rx="5" fill="none" stroke="#8A3324" stroke-width="2"/>
+            <text x="12" y="23" fill="#8A3324" font-size="17" font-weight="bold">✗</text>
+            <text x="32" y="23" fill="#4A4845" font-size="14" font-style="italic">Meas. p</text>
+          </g>
+          <g transform="translate(212,40)">
+            <rect width="92" height="34" rx="5" fill="none" stroke="#8A3324" stroke-width="2"/>
+            <text x="12" y="23" fill="#8A3324" font-size="17" font-weight="bold">✗</text>
+            <text x="32" y="23" fill="#4A4845" font-size="14" font-style="italic">∀ α ∈ ℝ</text>
+          </g>
+          <g transform="translate(312,84)">
+            <rect width="88" height="34" rx="5" fill="none" stroke="#8A3324" stroke-width="2"/>
+            <text x="12" y="23" fill="#8A3324" font-size="17" font-weight="bold">✗</text>
+            <text x="32" y="23" fill="#4A4845" font-size="14" font-style="italic">U ⟂ S ?</text>
+          </g>
+          <g transform="translate(388,40)">
+            <rect width="84" height="34" rx="5" fill="none" stroke="#8A3324" stroke-width="2"/>
+            <text x="12" y="23" fill="#8A3324" font-size="17" font-weight="bold">✗</text>
+            <text x="32" y="23" fill="#4A4845" font-size="14" font-style="italic">g ≡ c</text>
+          </g>
+        </g>
+        <text x="240" y="248" fill="#7A786F" font-family="Georgia, serif" font-size="14" font-style="italic" text-anchor="middle">the statements you wrote — quantifiers, hypotheses, placeholders</text>
+      </svg>
+      <div class="panel-stat">5 statements wrong</div>
+      <div class="panel-substat">every one passed the checks on the left</div>
+    </div>
+
+    <div class="footer">Tessera · machine-checked in Lean 4 + Mathlib · johnpwarren.dev</div>
+  </div>
+</body>
+</html>
