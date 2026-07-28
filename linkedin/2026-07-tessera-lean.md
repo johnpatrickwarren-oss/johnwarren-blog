@@ -1,9 +1,14 @@
 # LinkedIn post — Tessera / SDC at fleet scale (2026-07)
 
-**Visual to attach:** `2026-07-tessera-lean-diagram.png` — "Where the alarm budget holds":
-the two fleet-heterogeneity axes (persistent quirk share × noise-scale spread), the green
-metered-gate region, the measured breach brackets, the e-BH failure point, and the
-fleet-size cascade annotation.
+**Visual to attach:** `2026-07-tessera-lean-promise.png` — "What does a page actually
+promise?": threshold ("a line was crossed", wrongness unknown, degrading unit never fires)
+vs budget (100 cordons, 5 crossed — at most 5 wrong, metered, self-revoking). Reads with
+zero context.
+
+**For the comment thread (with the blog link):** `2026-07-tessera-lean-diagram.png` —
+"Where the alarm budget holds": the measured edges (quirk share × noise spread, gate
+region, breach brackets, e-BH failure point, fleet-size cascade). The deep-dive image for
+readers who engage.
 
 ---
 

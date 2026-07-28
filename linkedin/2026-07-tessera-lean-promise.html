@@ -1,0 +1,128 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<style>
+  * { margin:0; padding:0; box-sizing:border-box; }
+  html,body { width:1200px; height:675px; }
+  .card {
+    position:relative; width:1200px; height:675px;
+    background:#F3EFE6; overflow:hidden;
+    font-family: Georgia, 'Times New Roman', serif;
+    -webkit-font-smoothing: antialiased;
+  }
+  .topbar { position:absolute; top:0; left:0; width:1200px; height:8px; background:#3D5B3F; }
+  .title {
+    position:absolute; left:0; top:40px; width:1200px; text-align:center;
+    color:#1C1A17; font-size:40px; font-weight:700;
+  }
+  .subtitle {
+    position:absolute; left:0; top:98px; width:1200px; text-align:center;
+    color:#4A4845; font-style:italic; font-size:20px;
+  }
+  .panel {
+    position:absolute; top:158px; width:520px; height:434px;
+    background:#FBF8F1; border:1px solid #DAD3C6; border-radius:10px;
+  }
+  .panel.left  { left:60px; }
+  .panel.right { left:620px; }
+  .panel-label {
+    position:absolute; top:24px; width:100%; text-align:center;
+    color:#7D7A74; font-weight:700; font-size:15px; letter-spacing:2.5px;
+  }
+  .promise {
+    position:absolute; top:54px; width:100%; text-align:center;
+    font-size:27px; font-weight:700;
+  }
+  .panel.left  .promise { color:#1C1A17; }
+  .panel.right .promise { color:#3D5B3F; }
+  .fig { position:absolute; top:112px; left:20px; }
+  .notes {
+    position:absolute; bottom:24px; left:40px; right:40px;
+    color:#4A4845; font-size:16px; line-height:1.55; text-align:center;
+  }
+  .notes em { color:#8A3324; font-style:normal; font-weight:700; }
+  .footer {
+    position:absolute; left:0; top:634px; width:1200px; text-align:center;
+    color:#908D84; font-size:15px;
+  }
+</style>
+</head>
+<body>
+  <div class="card">
+    <div class="topbar"></div>
+    <div class="title">What does a page actually promise?</div>
+    <div class="subtitle">GPU-fleet health alarms: a hand-tuned threshold vs a false-discovery budget</div>
+
+    <div class="panel left">
+      <div class="panel-label">A THRESHOLD PROMISES</div>
+      <div class="promise">"a line was crossed"</div>
+      <svg class="fig" width="480" height="210" viewBox="0 0 480 210" xmlns="http://www.w3.org/2000/svg">
+        <!-- noisy signal -->
+        <polyline fill="none" stroke="#7D7A74" stroke-width="2"
+          points="30,150 55,138 80,155 105,132 130,148 155,126 180,152 205,136 230,158 255,130 280,144 305,118 330,74 350,124 375,142 400,128 425,150 450,136"/>
+        <!-- threshold line -->
+        <line x1="30" y1="92" x2="450" y2="92" stroke="#8A3324" stroke-width="2" stroke-dasharray="7 5"/>
+        <text x="34" y="84" fill="#8A3324" font-family="Georgia, serif" font-size="14" font-style="italic">threshold</text>
+        <!-- the one firing -->
+        <circle cx="330" cy="74" r="8" fill="#8A3324"/>
+        <circle cx="330" cy="74" r="8" fill="none" stroke="#FBF8F1" stroke-width="2"/>
+        <text x="345" y="66" fill="#8A3324" font-family="Georgia, serif" font-size="15" font-weight="bold">page</text>
+        <!-- the quiet sick unit -->
+        <polyline fill="none" stroke="#BDB9B1" stroke-width="2"
+          points="30,178 80,176 130,173 180,171 230,168 280,166 330,163 380,161 430,158 450,157"/>
+        <text x="34" y="196" fill="#7A786F" font-family="Georgia, serif" font-size="13" font-style="italic">a degrading unit that never crosses it</text>
+      </svg>
+      <div class="notes">Wrong how often? <em>Unknown.</em><br>Tuned to last month's fleet; goes stale silently.</div>
+    </div>
+
+    <div class="panel right">
+      <div class="panel-label">A BUDGET PROMISES</div>
+      <div class="promise">"at most 5 of 100 pages are wrong"</div>
+      <svg class="fig" width="480" height="210" viewBox="0 0 480 210" xmlns="http://www.w3.org/2000/svg">
+        <!-- 10 x 10 grid of cordons; 5 crossed -->
+        <g>
+          <!-- generated grid: cx = 105+30*col, cy = 12+21*row -->
+          <!-- rows of green dots with 5 red-crossed exceptions at fixed cells -->
+        </g>
+        <g id="grid"></g>
+        <script></script>
+      </svg>
+      <div class="notes">On average, enforced by proof — not tuning.<br>Metered live; revokes itself when the fleet drifts out of budget.</div>
+    </div>
+
+    <div class="footer">Tessera · the bound is machine-checked in Lean · johnpwarren.dev</div>
+  </div>
+
+  <script>
+    // build the 10x10 cordon grid: 95 kept (green), 5 wrong (red, crossed)
+    const svg = document.querySelector('.panel.right svg');
+    const g = svg.getElementById('grid');
+    const wrong = new Set([7, 23, 48, 66, 91]);
+    for (let i = 0; i < 100; i++) {
+      const col = i % 10, row = Math.floor(i / 10);
+      const cx = 105 + 30 * col, cy = 14 + 20.2 * row;
+      const isWrong = wrong.has(i);
+      const c = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
+      c.setAttribute('cx', cx); c.setAttribute('cy', cy); c.setAttribute('r', 7);
+      if (isWrong) {
+        c.setAttribute('fill', 'none');
+        c.setAttribute('stroke', '#8A3324');
+        c.setAttribute('stroke-width', '2');
+      } else {
+        c.setAttribute('fill', '#3D5B3F');
+      }
+      g.appendChild(c);
+      if (isWrong) {
+        for (const [dx1, dy1, dx2, dy2] of [[-3.6, -3.6, 3.6, 3.6], [-3.6, 3.6, 3.6, -3.6]]) {
+          const l = document.createElementNS('http://www.w3.org/2000/svg', 'line');
+          l.setAttribute('x1', cx + dx1); l.setAttribute('y1', cy + dy1);
+          l.setAttribute('x2', cx + dx2); l.setAttribute('y2', cy + dy2);
+          l.setAttribute('stroke', '#8A3324'); l.setAttribute('stroke-width', '2');
+          g.appendChild(l);
+        }
+      }
+    }
+  </script>
+</body>
+</html>
