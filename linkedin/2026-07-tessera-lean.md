@@ -1,16 +1,41 @@
-# LinkedIn post — Tessera / SDC at fleet scale (2026-07)
+# LinkedIn — Tessera / SDC at fleet scale (2026-07)
 
-**Visual to attach:** `2026-07-tessera-lean-promise.png` — "What does a page actually
-promise?": threshold ("a line was crossed", wrongness unknown, degrading unit never fires)
-vs budget (100 cordons, 5 crossed — at most 5 wrong, metered, self-revoking). Reads with
-zero context.
-
-**For the comment thread (with the blog link):** `2026-07-tessera-lean-diagram.png` —
-"Where the alarm budget holds": the measured edges (quirk share × noise spread, gate
-region, breach brackets, e-BH failure point, fleet-size cascade). The deep-dive image for
-readers who engage.
+Two artifacts. The FEED POST (≤3,000 chars) is the reach vehicle: attach
+`2026-07-tessera-lean-promise.png`, put the blog link in the post text, drop
+`2026-07-tessera-lean-diagram.png` (the edges map) in the first comment. The ARTICLE
+(title: **A false-alarm budget for GPU fleets**) is the long piece below the divider;
+use the promise image as its cover and embed the edges map at the "Where it landed"
+section.
 
 ---
+
+## FEED POST (2,096 chars — limit 3,000)
+
+On a 72,000-GPU training cluster, a GPU can compute wrong answers for weeks while every health check reads green.
+
+Silent data corruption raises no hardware alarm: NVIDIA's DCGM alarms on hardware-reported syndromes, and SDC by definition produces none. Meta's Llama 3 team logged 466 interruptions in 54 days; six were silent corruption that passed diagnostics. The behavioral gray zone lands on dashboards where operators hand-tune thresholds — and a tuned threshold is a snapshot of last month's fleet.
+
+Tessera is my statistical tier for that gap. Randomized probe groups make GPUs directly comparable; ranks accumulate into e-values; a selection step (e-BH) issues cordons with a defined false-discovery budget: at most, say, 5 of 100 cordons wrong. Not a level you tune — an error rate you set, metered live, revoked in code when the fleet leaves the regime where the math holds.
+
+Testing against the most realistic simulated cluster I could build (clustersynth: to 100,000 simulated GPUs, 60-day streams) killed the guarantee I wanted — one that holds anywhere, always:
+
+• A rack that runs benignly hot: healthy GPUs paged 3.3× their budget by round 320, with every per-round number exact.
+• Persistently noisier-but-healthy units: 14.8 false cordons per run.
+• Doubling the fleet twice: false cordons went 0 → 3 → 26.5. Superlinear.
+
+So I measured the edges, built estimators that meter them live, and machine-checked the math from conditions to conclusion in the Lean theorem prover — which found five wrong formal statements that 995,245 passing simulations had validated.
+
+Measured record when the guarantee is live: 0 wrong cordons in 46 validation runs. All simulation, stated as such; the 10,000-plus cascade onset is the open item.
+
+Hand-tuned thresholds can't be patched into this: no error-rate semantics, no breaker, and the failure modes above never move a per-signal marginal.
+
+If you run fleet health at scale: what catches the GPU that passes every diagnostic — and what fraction of wrong pages did you sign up for?
+
+Full write-up: https://johnpwarren.dev/blog/tessera-lean/
+
+---
+
+## ARTICLE — A false-alarm budget for GPU fleets
 
 On a 72,000-GPU training cluster, a GPU can compute wrong answers for weeks while every health check reads green.
 
