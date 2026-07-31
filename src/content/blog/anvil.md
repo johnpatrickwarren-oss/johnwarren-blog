@@ -60,7 +60,7 @@ In the latency-injection example: Family A on `p99_latency` is suppressed. Famil
 
 Either of those firings produces `experiment_failed_unexpectedly` — not because the operator's intended fault didn't happen, but because the system revealed a coupling the operator hadn't accounted for. That is the chaos engineer's actual signal of interest. The whole point of injecting faults is to find out what the system does *other* than the intended thing.
 
-The Anvil v1 reference profile enables Family A (per-signal mean shift) and Family C (joint-vector distance) only; Families B, D, and E are off. Family B's structural rules don't transfer to generic chaos targets — they were tuned for LLM-inference signatures. Families D and E need more calibration history than a typical chaos experiment provides at v1. The α allocation is 70/30 between A and C, total budget 1e-3 — same anytime-valid guarantee as in the deploy-gate direction.
+The Anvil v1 reference profile runs four families: A as primary (per-signal mean shift), C as the unexpected-blast catcher (joint-vector distance), D for oscillation and recovery, and E for novelty and distributional shift. The α allocation is 40/20/20/20, total budget 1e-3 — the same anytime-valid guarantee as in the deploy-gate direction. Family B is held at zero: its structural rules were tuned for LLM-inference signatures and don't transfer to generic chaos targets, so its share is reserved rather than spent, pending chaos-structural signature work.
 
 ## The four adapters
 
