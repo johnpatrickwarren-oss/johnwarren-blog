@@ -39,8 +39,11 @@ way. All of this is on a simulation substrate, stated as such in the reports
 (research/ in the same repo).
 
 A side effect: proving the chain exposed five defects in
-my own formal statements that 995,245 numerical checks had passed, including an
-independence hypothesis whose absence has a clean adversarial-coupling counterexample.
+my own formal statements, each already validated numerically against the shipped code
+(exhaustive permutation sweeps, quadrature, Monte Carlo). The checks instantiate the
+objects I intended; the statements quantified over more — one was unsatisfiable and
+type-checked cleanly, and one was missing an independence hypothesis with a clean
+adversarial-coupling counterexample.
 
 No reply expected. If any of it is useful to you or a student, it's public.
 
