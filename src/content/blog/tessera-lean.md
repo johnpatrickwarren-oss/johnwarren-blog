@@ -1,6 +1,6 @@
 ---
 title: 'Tessera: a machine-checked false-alarm guarantee for GPU fleets'
-description: 'Fleet monitors page people on statistical evidence. Tessera''s false-discovery-rate guarantee is now proved end to end in Lean — and the proofs found five wrong statements that 995,245 passing simulations missed.'
+description: 'Fleet monitors page people on statistical evidence. Tessera''s false-discovery-rate guarantee is now proved end to end in Lean — and the proofs found five wrong statements that numerical validation had already passed.'
 pubDate: 'Jul 27 2026'
 heroImage: '/og/og_tessera_lean.png'
 ---
